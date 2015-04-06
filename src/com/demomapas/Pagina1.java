@@ -263,12 +263,26 @@ public class Pagina1 extends Fragment{
 		public void grabar() {
 			recorder = new MediaRecorder();
 			recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-			recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-			recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+			//recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+			recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+			//recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+			recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+			
+			// mRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+			 //   mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+		
+
+			recorder.setAudioChannels(1);
+			recorder.setAudioSamplingRate(44100);
+			    recorder.setAudioEncodingBitRate(96000);
+			    
+			
+			
+			
 			File pathGrabacion = new File(Environment.getExternalStorageDirectory()
 					.getPath());
 			try {
-				archivo = File.createTempFile("temporal", ".mp3", pathGrabacion);
+				archivo = File.createTempFile("temporal", ".m4a", pathGrabacion);
 				pathAudio = archivo.getPath();
 			} catch (IOException e) {
 			}

@@ -14,8 +14,6 @@
 	<classpathentry kind="lib" path="libs/httpmime-4.3.4.jar"/>
 	<classpathentry kind="lib" path="libs/gcm.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.4.jar"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="src" path="endpoint-libs/libagentService-v1/agentService/agentservice-v1-generated-source"/>
 	<classpathentry kind="src" path="endpoint-libs/libcommandmentService-v1/commandmentService/commandmentservice-v1-generated-source"/>
 	<classpathentry kind="src" path="endpoint-libs/libdeviceinfoendpoint-v1/deviceinfoendpoint/deviceinfoendpoint-v1-generated-source"/>
@@ -24,7 +22,9 @@
 	<classpathentry kind="src" path="endpoint-libs/libpersonService-v1/personService/personservice-v1-generated-source"/>
 	<classpathentry kind="src" path="endpoint-libs/libpruebaendpoint-v1/pruebaendpoint/pruebaendpoint-v1-generated-source"/>
 	<classpathentry kind="src" path="endpoint-libs/librequireService-v1/requireService/requireservice-v1-generated-source"/>
-	<classpathentry exported="true" kind="lib" path="/Users/virtualef/Downloads/Previo/libs/storm-api-0.97.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/virtualef/Downloads/Previo/libs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="/Users/MAC01/Desktop/DemoMapas123/libs/storm-api-0.97.jar"/>
+	<classpathentry kind="lib" path="/Users/MAC01/Desktop/DemoMapas123/libs/android-support-v4.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
