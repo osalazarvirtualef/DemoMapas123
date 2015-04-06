@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PhotoIntentActivity!</string>
+    <string name="app_name">Mandamiento Judicial</string>
+    <string name="btnIntend">Take (big) Picture</string>
+    <string name="btnIntendS">Take (small) Picture</string>
+    <string name="btnIntendV">Take Video</string>
+    <string name="cannot">Cannot</string>
+    <string name="album_name">CameraSample</string>
+    <string name="title_activity_principal">Principal</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mandamientos_judiciales">MandamientosJudiciales</string>
+    <string name="title_activity_lista_opciones">ListaOpciones</string>
+    <string name="title_activity_mandamientos_judiciales_list">MandamientosJudicialesList</string>
+    <string name="title_activity_ordenes_aprehension">OrdenesAprehension</string>
+    <string name="title_activity_lfve">Lfve</string>
+    <string name="title_activity_base_pager">BasePager</string>
+    <string name="title_activity_main_activity_pager">MainActivityPager</string>
+
+</resources>
