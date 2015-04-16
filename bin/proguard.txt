@@ -1,0 +1,73 @@
+# view res/layout/fragment_base_pager.xml #generated:15
+# view res/layout/lyt_fragment_referencia.xml #generated:15
+-keep class android.support.v4.view.PagerTabStrip { <init>(...); }
+
+# view res/layout/lyt_fragmentprincipal.xml #generated:7
+-keep class android.support.v4.view.PagerTitleStrip { <init>(...); }
+
+# view res/layout/fragment_base_pager.xml #generated:8
+# view res/layout/lyt_fragment_referencia.xml #generated:8
+# view res/layout/lyt_fragmentprincipal.xml #generated:2
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view res/layout/activity_main_activity_pager.xml #generated:1
+# view res/layout/fragment_main_activity_pager.xml #generated:1
+-keep class android.support.v4.widget.DrawerLayout { <init>(...); }
+
+# view AndroidManifest.xml #generated:61
+-keep class com.demomapas.GCMIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:92
+-keep class com.demomapas.InsertaUbicacion { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class com.demomapas.LevantarInformacion { <init>(...); }
+
+# view AndroidManifest.xml #generated:145
+-keep class com.demomapas.Lfve { <init>(...); }
+
+# view AndroidManifest.xml #generated:132
+-keep class com.demomapas.ListaOpciones { <init>(...); }
+
+# view AndroidManifest.xml #generated:43
+-keep class com.demomapas.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:128
+-keep class com.demomapas.MandamientosJudiciales { <init>(...); }
+
+# view AndroidManifest.xml #generated:137
+-keep class com.demomapas.MandamientosJudicialesList { <init>(...); }
+
+# view AndroidManifest.xml #generated:52
+-keep class com.demomapas.MapView { <init>(...); }
+
+# view AndroidManifest.xml #generated:158
+-keep class com.demomapas.NumerosEmergencia { <init>(...); }
+
+# view AndroidManifest.xml #generated:124
+-keep class com.demomapas.Principal { <init>(...); }
+
+# view AndroidManifest.xml #generated:78
+-keep class com.demomapas.RegisterActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:141
+-keep class com.demomapas.mandamientos.OrdenesAprehension { <init>(...); }
+
+# view AndroidManifest.xml #generated:149
+-keep class com.demomapas.pjgviewpager.BasePager { <init>(...); }
+
+# view AndroidManifest.xml #generated:153
+-keep class com.demomapas.pjgviewpager.MainActivityPager { <init>(...); }
+
+# view AndroidManifest.xml #generated:115
+-keep class com.demomapas.servicios.Iniciar_Servicio_Localizacion { <init>(...); }
+
+# view AndroidManifest.xml #generated:96
+-keep class com.demomapas.servicios.Servicio_Localizacion { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
+-keep class com.google.android.gcm.GCMBroadcastReceiver { <init>(...); }
+
+# view res/layout/activity_main.xml #generated:8
+-keep class com.google.android.gms.maps.SupportMapFragment { <init>(...); }
+
