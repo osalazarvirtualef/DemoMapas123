@@ -2,9 +2,12 @@ package com.demomapas.pjgviewpager;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Stack;
 
 import com.demomapas.Constants;
+import com.demomapas.ObjetoMandamiento;
 import com.demomapas.R;
 import com.demomapas.RegisterActivity;
 import com.demomapas.R.animator;
@@ -18,12 +21,14 @@ import com.virtualef.pgj.service.commandmentService.CommandmentService;
 import com.virtualef.pgj.service.commandmentService.model.CollectionResponseCommandmentDto;
 import com.virtualef.pgj.service.commandmentService.model.CommandmentDto;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.media.JetPlayer.OnJetEventListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -33,18 +38,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.Toast;
 public class MainActivityPager extends FragmentActivity {
 	
 	public static Stack<Fragment> fragmentos;
 	public static Stack<String> elementos;
-	public static  CollectionResponseCommandmentDto Mandamientos;
-	public static ArrayList<CommandmentDto> aprehension;
-	public static ArrayList<CommandmentDto> reaprehension;
-	public static ArrayList<CommandmentDto> presentacion;
-	public static ArrayList<CommandmentDto> comparecencia;
-	public static ArrayList<CommandmentDto> colaboracion;
-	public static ArrayList<CommandmentDto> traslados;
+	public static  CollectionResponseCommandmentDto Mandamientos = null;
+	public static ArrayList<CommandmentDto> aprehension = new ArrayList<CommandmentDto>();
+	public static ArrayList<CommandmentDto> reaprehension = new ArrayList<CommandmentDto>();
+	public static ArrayList<CommandmentDto> presentacion = new ArrayList<CommandmentDto>();
+	public static ArrayList<CommandmentDto> comparecencia = new ArrayList<CommandmentDto>();
+	public static ArrayList<CommandmentDto> colaboracion = new ArrayList<CommandmentDto>();
+	public static ArrayList<CommandmentDto> traslados = new ArrayList<CommandmentDto>();
 	
 	ProgressDialog progressDialog;
 	static SharedPreferences.Editor editor;
@@ -53,41 +59,19 @@ public class MainActivityPager extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setTitle("Policía de Investigación");
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-		aprehension = new ArrayList<CommandmentDto>();
-		reaprehension = new ArrayList<CommandmentDto>();
-		presentacion = new ArrayList<CommandmentDto>();
-		comparecencia = new ArrayList<CommandmentDto>();
-		colaboracion = new ArrayList<CommandmentDto>();
-		traslados = new ArrayList<CommandmentDto>();
+	
 		
+	System.out.println();
+	super.onCreate(savedInstanceState);
+	Log.i("estoy en el oncreate", "estoy en el oncreate");
 		
-		setContentView(R.layout.activity_main_activity_pager);
-		Preferences = getApplicationContext().getSharedPreferences(
-				"settings", 0);
-		
-		  progressDialog = new ProgressDialog(MainActivityPager.this);  
-        //Set the progress dialog to display a horizontal bar .  
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
-        //Set the dialog title to 'Loading...'.  
-        progressDialog.setTitle("Obteniendo Mandamientos...");  
-        //Set the dialog message to 'Loading application View, please wait...'.  
-        progressDialog.setMessage("Descargando...");  
-        //This dialog can't be canceled by pressing the back key.  
-        progressDialog.setCancelable(false);  
-        //This dialog isn't indeterminate.  
-        progressDialog.setIndeterminate(false);  
-        //The maximum number of progress items is 100.  
-        progressDialog.setMax(100);  
-        //Set the current progress to zero.  
-        progressDialog.setProgress(0);  
-        //Display the progress dialog.  
-        progressDialog.show(); 
-        
-        new ObtenerInformacion(getApplicationContext()).execute();
-		
+	}
+	
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onRestoreInstanceState(savedInstanceState);
+		Log.i("estoy en el onrestore", "estoy en el onrestore");
 		
 		
 	}
@@ -95,15 +79,163 @@ public class MainActivityPager extends FragmentActivity {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
+
 	}
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		return MenuSelecciona(item);
+	}
+	private boolean MenuSelecciona(MenuItem item) {
+		switch (item.getItemId()) {
+
+		case 0:
+//			Toast.makeText(this, "Has pulsado el Item 1 del Action Bar",
+//					Toast.LENGTH_SHORT).show();
+			CustomDialogFragment customDialog = new CustomDialogFragment();
+			customDialog.show(getSupportFragmentManager(), "prueba");
+			return true;
+
+		case 1:
+//			Toast.makeText(this, "Has pulsado el Item 2 del Action Bar",
+//					Toast.LENGTH_SHORT).show();
+
+			return true;
+
+			// --A���adimos el caso para cuando se pulse el boton home
+
+		case android.R.id.home:
+//			Toast.makeText(this, "Has pulsado el Home del Action Bar",
+//					Toast.LENGTH_SHORT).show();
+
+			return true;
+
+		}
+		return false;
+	}
+	
+	
 @Override
 protected void onStop() {
 	// TODO Auto-generated method stub
 	super.onStop();
 }
+//@Override
+//protected void onSaveInstanceState(Bundle outState) {
+//	// TODO Auto-generated method stub
+//	super.onSaveInstanceState(outState);
+//	ObjetoMandamiento objeto = new ObjetoMandamiento();
+//	objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+//	objeto.aprehension =  aprehension;
+//	objeto.reaprehension = reaprehension;
+//	objeto.presentacion = presentacion;
+//	objeto.comparecencia =  comparecencia;
+//	objeto.colaboracion = colaboracion;
+//	objeto.traslados =  traslados;
+//	outState.putParcelable("prueba", objeto);
+//
+//}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+	// TODO Auto-generated method stub
+	CrearMenu(menu);
+	return super.onCreateOptionsMenu(menu);
+}
+
+private void CrearMenu(Menu menu) {
+
+	
+	
+//	MenuItem item = menu.add("Search");
+//	SearchView sv = new SearchView(getActionBar().getThemedContext());
+//	item.setActionView(sv);
+//	item.setIcon(R.drawable.ic_search);
+//	item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW
+//	        | MenuItem.SHOW_AS_ACTION_IF_ROOM);
+	MenuItem item1 = menu.add(0, 0, 0, "Item 1");
+	{
+		// Copio las imagenes que van en cada item
+		//SearchView sv = new SearchView(getActionBar().getThemedContext());
+		item1.setIcon(R.drawable.telefono);
+		//item1.setActionView(sv);
+		item1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+		//item1.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW
+		 //       | MenuItem.SHOW_AS_ACTION_IF_ROOM);
+	
+	//	  android:actionViewClass="android.widget.SearchView"/>
+		
+	}
+
+//	MenuItem item2 = menu.add(0, 1, 1, "Item 2");
+//	{
+//		item2.setIcon(R.drawable.camara);
+//		item2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+//	}
+
+}
 @Override
 protected void onResume() {
 	// TODO Auto-generated method stub
+	setTitle("Policía de Investigación");
+	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	ActionBar actionBar = getActionBar();
+	actionBar.setDisplayHomeAsUpEnabled(true);
+
+	
+	
+	setContentView(R.layout.activity_main_activity_pager);
+	Preferences = getApplicationContext().getSharedPreferences(
+			"settings", 0);
+	
+	
+	
+//	Bundle bundle = new Bundle();
+//	
+//	ObjetoMandamiento objeto = new ObjetoMandamiento();
+//	objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+//	objeto.aprehension =  aprehension;
+//	objeto.reaprehension = reaprehension;
+//	objeto.presentacion = presentacion;
+//	objeto.comparecencia =  comparecencia;
+//	objeto.colaboracion = colaboracion;
+//	objeto.traslados =  traslados;
+//	bundle.putParcelable("prueba", objeto);
+//	BasePager paginas = new BasePager();
+//	paginas.setArguments(bundle);
+//	fragmentos = new Stack<Fragment>();
+//	elementos = new Stack<String>();
+//	FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+//	tx.setCustomAnimations(R.animator.enter,
+//			R.animator.exit, R.animator.pop_enter,
+//			R.animator.pop_exit);
+//	tx.replace(R.id.frm_lyt_mainMenu, fragmentos.push(paginas));
+//	elementos.push("paginas");
+//	
+//	tx.commit();
+
+
+	  progressDialog = new ProgressDialog(MainActivityPager.this);  
+    //Set the progress dialog to display a horizontal bar .  
+    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
+    //Set the dialog title to 'Loading...'.  
+    progressDialog.setTitle("Obteniendo Mandamientos...");  
+    //Set the dialog message to 'Loading application View, please wait...'.  
+    progressDialog.setMessage("Descargando...");  
+    //This dialog can't be canceled by pressing the back key.  
+    progressDialog.setCancelable(false);  
+    //This dialog isn't indeterminate.  
+    progressDialog.setIndeterminate(false);  
+    //The maximum number of progress items is 100.  
+    progressDialog.setMax(100);  
+    //Set the current progress to zero.  
+    progressDialog.setProgress(0);  
+    //Display the progress dialog.  
+    progressDialog.show(); 
+    
+    new ObtenerInformacion(getApplicationContext()).execute();
+		
 	super.onResume();
 }
 @Override
@@ -143,7 +275,9 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 	@Override
 	protected Void doInBackground(Void... params) {
 		EndPointsInicializacion endpoints = new EndPointsInicializacion();
-		CommandmentService MandamientoEndpoint;
+		CommandmentService MandamientoEndpoint = null;
+		if(Mandamientos==null)
+		{
 		MandamientoEndpoint = endpoints.InicializacionMandamiento();
 		try {
 
@@ -167,7 +301,9 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 				System.out.println();
 				
 			}
+		
 			Log.i("", "");
+			
 			 
 			
 			
@@ -177,6 +313,8 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 		
 			
 		}
+		}
+			
 
 		return null;
 	}
@@ -185,7 +323,19 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 
 		
 		super.onPostExecute(result);
+		Bundle bundle = new Bundle();
+		
+		ObjetoMandamiento objeto = new ObjetoMandamiento();
+		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+		objeto.aprehension =  aprehension;
+		objeto.reaprehension = reaprehension;
+		objeto.presentacion = presentacion;
+		objeto.comparecencia =  comparecencia;
+		objeto.colaboracion = colaboracion;
+		objeto.traslados =  traslados;
+		bundle.putParcelable("prueba", objeto);
 		BasePager paginas = new BasePager();
+		paginas.setArguments(bundle);
 		fragmentos = new Stack<Fragment>();
 		elementos = new Stack<String>();
 		FragmentTransaction tx = getSupportFragmentManager().beginTransaction();

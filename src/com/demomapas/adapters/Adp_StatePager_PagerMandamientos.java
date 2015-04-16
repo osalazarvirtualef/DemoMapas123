@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.demomapas.Constants;
 import com.demomapas.MyMapFragment;
+import com.demomapas.ObjetoMandamiento;
 import com.demomapas.pjgviewpager.Frag_Listados;
 import com.demomapas.pjgviewpager.MainActivityPager;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,12 +31,13 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter 
 	int Tipo;
 	int Padre;
 	Context Contexto;
-
+//ObjetoMandamiento objeto;
 	/** Constructor of the class */
 	public Adp_StatePager_PagerMandamientos(FragmentManager fm, Context contexto) {
 
 		super(fm);
 		this.Contexto = contexto;
+	//	this.objeto = objeto;
 //		this.Tipo = tipo;
 //		this.Padre = padre;
 	}
@@ -127,23 +129,23 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter 
 	
 		
 		case 0:
-			Titulo = "Ubicaciones de Mandamientos";
+			Titulo = "Ubicaciones";
 			break;
 		case 1:
-		Titulo="Ordenes de Aprehensión";
+		Titulo="Aprehensión";
 
 			break;
 		case 2:
-			Titulo = "Ordenes de Reaprehensión";
+			Titulo = "Reaprehensión";
 			break;
 		case 3:
-			Titulo = "Ordenes de Presentación";
+			Titulo = "Presentación";
 			break;
 		case 4:
-			Titulo = "Ordenes de Comparecencía";
+			Titulo = "Comparecencía";
 			break;
 		case 5:
-			Titulo = "Oficios de Colaboración";
+			Titulo = "Colaboración";
 			break;
 		case 6:
 			Titulo = "Traslados";

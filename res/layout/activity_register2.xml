@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center_horizontal"
-    android:background="@color/white"
+    android:background="@color/black"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingTop="30dp" >
@@ -11,7 +11,7 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -21,7 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@color/black"
             android:orientation="vertical" >
 
             <ImageView
@@ -81,57 +81,117 @@
                 <requestFocus />
             </EditText>
 -->
-    <EditText
-        android:id="@+id/editTextUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="19dp"
-        android:background="#4D506372"
-        android:ellipsize="start"
-        android:gravity="center"
-        android:hint="Usuario"
-        android:singleLine="true"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:textSize="12pt"
-        android:typeface="monospace" />
 
-    <EditText
-        android:id="@+id/editTextContrasena"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/txt_usuario"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="11dp"
-        android:background="#4D506372"
-        android:ellipsize="start"
-        android:gravity="center"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-          android:singleLine="true"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:textSize="12pt"
-        
-        android:typeface="monospace" />
-        <Button
-        android:id="@+id/regButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/txt_password"
-        android:layout_marginTop="18dp"
-        android:background="#3262A2"
-        android:text="Acceder"
-        android:textSize="12pt"
-        android:typeface="monospace" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_weight="0"
+                    android:text="Usuario: "
+                    android:textColor="@color/white"
+                    android:textSize="10pt" />
+						
+                <EditText 
+                    android:id="@+id/editTextUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:typeface="monospace"
+                        android:textSize="10pt"
+                        android:text="pina"
+                        android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:gravity="center"/>
+               <!--  <EditText
+                    android:id="@+id/editTextUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:ellipsize="start"
+                    android:ems="10"
+                    android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="#000000"
+                    android:textColorHint="@color/gray"
+                    android:textCursorDrawable="@null"
+                    android:textSize="12pt"
+                    android:typeface="monospace" >
+
+                    <requestFocus />
+                   
+                </EditText>
+                  -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contraseña: "
+                    android:textColor="@color/white"
+                    android:textSize="10pt" />
+                <EditText 
+                    android:id="@+id/editTextContrasena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="12345"
+                     android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="10pt"
+                    android:typeface="monospace"
+                    android:gravity="center"/>
+
+             <!--    <EditText
+                    android:id="@+id/editTextContrasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="start"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="#000000"
+                    android:textColorHint="@color/gray"
+                    android:textCursorDrawable="@null"
+                    android:textSize="12pt"
+                    android:typeface="monospace" />
+-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/regButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:background="#3262A2"
+                    android:text="Acceder"
+                    android:textColor="@color/white"
+                    android:textSize="12pt"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
     <!--  
                <Button
                    android:id="@+id/regButton2"

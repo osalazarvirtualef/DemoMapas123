@@ -10,6 +10,8 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" >
+    </uses-permission>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -20,8 +22,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <permission
         android:name="com.demomapas.permission.C2D_MESSAGE"
@@ -37,7 +39,7 @@
         android:allowBackup="true"
         android:icon="@drawable/pdi"
         android:label="@string/app_name"
-        android:theme="@android:style/Holo.ButtonBar" >
+        android:theme="@style/CustomTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -76,7 +78,7 @@
         <activity
             android:name=".RegisterActivity"
             android:launchMode="singleTop"
-              android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -129,8 +131,8 @@
         </activity>
         <activity
             android:name=".ListaOpciones"
-            android:label="@string/title_activity_lista_opciones" 
-             android:screenOrientation="portrait">
+            android:label="@string/title_activity_lista_opciones"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".MandamientosJudicialesList"
@@ -149,8 +151,13 @@
             android:label="@string/title_activity_base_pager" >
         </activity>
         <activity
-            android:name="com.demomapas.pjgviewpager.MainActivityPager"
+            android:name=".pjgviewpager.MainActivityPager"
+            android:launchMode="singleTop"
             android:label="@string/title_activity_main_activity_pager" >
+        </activity>
+        <activity
+            android:name=".NumerosEmergencia"
+            android:label="@string/title_activity_numeros_emergencia" >
         </activity>
     </application>
 

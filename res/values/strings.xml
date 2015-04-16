@@ -18,5 +18,6 @@
     <string name="title_activity_lfve">Lfve</string>
     <string name="title_activity_base_pager">BasePager</string>
     <string name="title_activity_main_activity_pager">MainActivityPager</string>
+    <string name="title_activity_numeros_emergencia">NumerosEmergencia</string>
 
 </resources>

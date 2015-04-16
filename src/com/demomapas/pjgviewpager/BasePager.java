@@ -1,9 +1,11 @@
 package com.demomapas.pjgviewpager;
 
+import com.demomapas.ObjetoMandamiento;
 import com.demomapas.R;
 import com.demomapas.adapters.Adp_StatePager_PagerMandamientos;
 
 import android.os.Bundle;
+import android.os.Parcel;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -16,10 +18,12 @@ public class BasePager extends Fragment {
 	
 
 	ViewPager pager;
+	ObjetoMandamiento objeto = new ObjetoMandamiento();
 @Override
 public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {
 	// TODO Auto-generated method stub
+//	objeto = getArguments().getParcelable("prueba"); 
 	ViewGroup root = (ViewGroup) inflater.inflate(
 			R.layout.lyt_fragment_referencia, null);
 	return root;

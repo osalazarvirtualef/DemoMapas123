@@ -81,6 +81,13 @@ public class Pagina1 extends Fragment{
 	 MediaPlayer player;
 	 String pathAudio;
 	private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
+	
+	
+	
+	private final static String CAPTURED_PHOTO_PATH_KEY = "mCurrentPhotoPath";
+	private final static String CAPTURED_PHOTO_URI_KEY = "mCapturedImageURI";
+	//private String mCurrentPhotoPath = null;
+	private Uri mCapturedImageURI = null;
 
 	 private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
 	 
@@ -103,6 +110,19 @@ public class Pagina1 extends Fragment{
 		public Pagina1() {
 			// TODO Auto-generated constructor stub
 		}
+		
+		@Override
+		public void onSaveInstanceState(Bundle savedInstanceState) {
+		    if (mCurrentPhotoPath != null) {
+		        savedInstanceState.putString(CAPTURED_PHOTO_PATH_KEY, mCurrentPhotoPath);
+		    }
+		    if (mCapturedImageURI != null) {
+		        savedInstanceState.putString(CAPTURED_PHOTO_URI_KEY, mCapturedImageURI.toString());
+		    }
+		    super.onSaveInstanceState(savedInstanceState);
+		}
+
+		
 
 	  @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,

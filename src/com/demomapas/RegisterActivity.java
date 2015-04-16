@@ -38,6 +38,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -105,6 +106,7 @@ public class RegisterActivity extends Activity implements OnClickListener, Locat
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setTitle("POLICÍA DE INVESTIGACIÓN");
+    getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
     Preferences = getApplicationContext().getSharedPreferences(
 			"settings", 0);
     boolean initialized = Preferences.getBoolean("FirstTime", false);

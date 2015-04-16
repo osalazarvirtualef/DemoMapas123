@@ -242,6 +242,7 @@ public class Frag_Listados extends Fragment {
 					bundle.putInt("Position1", arg2);
 					bundle.putLong("Position2", arg3);
 					remplazo.setArguments(bundle);
+					
 //					bundle.putInt("Tipo", Constants.OrdenesReaprehension);
 //					lista1.setArguments(bundle);
 					
