@@ -18,6 +18,9 @@
 
 package com.virtualef.pgj.service.commandmentService.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Model definition for CommandmentDto.
  *
@@ -29,7 +32,7 @@ package com.virtualef.pgj.service.commandmentService.model;
  * @author Google, Inc.
  */
 @SuppressWarnings("javadoc")
-public final class CommandmentDto extends com.google.api.client.json.GenericJson {
+public final class CommandmentDto extends com.google.api.client.json.GenericJson implements Parcelable{
 
   /**
    * The value may be {@code null}.
@@ -502,5 +505,17 @@ public final class CommandmentDto extends com.google.api.client.json.GenericJson
   public CommandmentDto clone() {
     return (CommandmentDto) super.clone();
   }
+
+@Override
+public int describeContents() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+@Override
+public void writeToParcel(Parcel dest, int flags) {
+	// TODO Auto-generated method stub
+	
+}
 
 }

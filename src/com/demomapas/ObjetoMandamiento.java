@@ -1,6 +1,7 @@
 package com.demomapas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.virtualef.pgj.service.commandmentService.model.CollectionResponseCommandmentDto;
 import com.virtualef.pgj.service.commandmentService.model.CommandmentDto;
@@ -10,26 +11,26 @@ import android.os.Parcelable;
 
 public class ObjetoMandamiento implements Parcelable {
 	
-	public ArrayList<CommandmentDto> Mandamientos;
-	public ArrayList<CommandmentDto> aprehension;
-	public ArrayList<CommandmentDto> reaprehension;
-	public ArrayList<CommandmentDto> presentacion;
-	public ArrayList<CommandmentDto> comparecencia;
-	public ArrayList<CommandmentDto> colaboracion;
-	public ArrayList<CommandmentDto> traslados;
+	public List<CommandmentDto> Mandamientos;
+//	public ArrayList<CommandmentDto> aprehension;
+//	public ArrayList<CommandmentDto> reaprehension;
+//	public ArrayList<CommandmentDto> presentacion;
+//	public ArrayList<CommandmentDto> comparecencia;
+//	public ArrayList<CommandmentDto> colaboracion;
+//	public ArrayList<CommandmentDto> traslados;
 
 	
 	public ObjetoMandamiento(Parcel in) {
 	
 		
 		System.out.println();
-		Mandamientos =  new ArrayList<CommandmentDto>();
-		aprehension =  new ArrayList<CommandmentDto>();
-		reaprehension =  new ArrayList<CommandmentDto>();
-		presentacion = new ArrayList<CommandmentDto>();
-		comparecencia = new ArrayList<CommandmentDto>();
-		colaboracion = new ArrayList<CommandmentDto>();
-		traslados = new ArrayList<CommandmentDto>();
+
+//		aprehension =  new ArrayList<CommandmentDto>();
+//		reaprehension =  new ArrayList<CommandmentDto>();
+//		presentacion = new ArrayList<CommandmentDto>();
+//		comparecencia = new ArrayList<CommandmentDto>();
+//		colaboracion = new ArrayList<CommandmentDto>();
+//		traslados = new ArrayList<CommandmentDto>();
 //		notas = new float[3];
 //		amigos = new ArrayList<ObjetoMandamiento>();
 		
@@ -53,12 +54,12 @@ public class ObjetoMandamiento implements Parcelable {
 	public ObjetoMandamiento() {
 		// TODO Auto-generated constructor stub
 		Mandamientos = new ArrayList<CommandmentDto>();
-		aprehension = new ArrayList<CommandmentDto>();
-		reaprehension =  new ArrayList<CommandmentDto>();
-		presentacion = new ArrayList<CommandmentDto>();
-		comparecencia = new ArrayList<CommandmentDto>();
-		colaboracion = new ArrayList<CommandmentDto>();
-		traslados = new ArrayList<CommandmentDto>();
+//		aprehension = new ArrayList<CommandmentDto>();
+//		reaprehension =  new ArrayList<CommandmentDto>();
+//		presentacion = new ArrayList<CommandmentDto>();
+//		comparecencia = new ArrayList<CommandmentDto>();
+//		colaboracion = new ArrayList<CommandmentDto>();
+//		traslados = new ArrayList<CommandmentDto>();
 		
 	}
 	@Override
@@ -71,12 +72,12 @@ public class ObjetoMandamiento implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		// TODO Auto-generated method stub
 		dest.writeList(Mandamientos);
-		dest.writeList(aprehension);
-		dest.writeList(reaprehension);
-		dest.writeList(presentacion);
-		dest.writeList(comparecencia);
-		dest.writeList(colaboracion);
-		dest.writeList(traslados);
+//		dest.writeList(aprehension);
+//		dest.writeList(reaprehension);
+//		dest.writeList(presentacion);
+//		dest.writeList(comparecencia);
+//		dest.writeList(colaboracion);
+//		dest.writeList(traslados);
 
 	}
 
@@ -91,6 +92,9 @@ public class ObjetoMandamiento implements Parcelable {
 //	    esHijoUnico = temp[0];
 //	 
 //	    in.readFloatArray(notas);
-	    in.readList(Mandamientos, null);
+		//in.readList(Mandamientos, null);
+		ArrayList<CommandmentDto> products = new ArrayList<CommandmentDto>();
+		in.readList(products,null);
+	   // in.readList(Mandamientos, null);
 	}
 }

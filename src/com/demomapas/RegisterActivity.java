@@ -105,8 +105,8 @@ public class RegisterActivity extends Activity implements OnClickListener, Locat
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
-   // setTitle("POLICÍA DE INVESTIGACIÓN");
+   // requestWindowFeature(Window.FEATURE_NO_TITLE);
+    setTitle("");
    // getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
     Preferences = getApplicationContext().getSharedPreferences(
 			"settings", 0);

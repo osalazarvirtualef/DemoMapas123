@@ -23,7 +23,7 @@ public class BasePager extends Fragment {
 public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {
 	// TODO Auto-generated method stub
-//	objeto = getArguments().getParcelable("prueba"); 
+	objeto = getArguments().getParcelable("prueba"); 
 	ViewGroup root = (ViewGroup) inflater.inflate(
 			R.layout.lyt_fragment_referencia, null);
 	return root;

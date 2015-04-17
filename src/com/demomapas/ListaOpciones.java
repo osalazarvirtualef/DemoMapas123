@@ -71,12 +71,13 @@ public class ListaOpciones extends Activity implements android.view.View.OnClick
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lista_opciones);
-		setTitle("Policía de Investigación");
+		setTitle("");
 	    Preferences = getApplicationContext().getSharedPreferences(
 				"settings", 0);
 		//inicializamos los layouts
 		principal =  (RelativeLayout) findViewById(R.id.RelativeListaOpciones);
 		lista =  (LinearLayout) findViewById(R.id.ListaElementos);
+	
 		LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		
 	    //llp.setMargins(0, 30, 0, 0);
@@ -91,6 +92,7 @@ public class ListaOpciones extends Activity implements android.view.View.OnClick
 		MandamientosJudiaciales.setTextColor(Color.BLACK);
 		MandamientosJudiaciales.setBackgroundColor(Color.WHITE);
 		MandamientosJudiaciales.setId(Constants.MandamientosJudiciales);
+	
 		
 		Button Documentos = new Button(getApplicationContext());
 		Documentos.setLayoutParams(llp);

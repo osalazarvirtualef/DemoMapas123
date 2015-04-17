@@ -110,5 +110,27 @@
         <item name="android:windowTitleSize">35dip</item>
         <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
     </style>
+    <!-- 
+    
+    
+    
+     -->
+        <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme"
+           parent="@android:style/Theme.Holo">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+
+    </style>
+     <style name="MyActionBar" 
+         parent ="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+     <item name="android:icon">@android:color/transparent</item>
+       <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:background">@drawable/logopgj</item>
+      
+        
+
+
+    </style>
 
 </resources>

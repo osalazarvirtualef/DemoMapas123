@@ -25,7 +25,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter {
+public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter{
 
 	final int PAGE_COUNT = 7;
 	int Tipo;
@@ -142,7 +142,7 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter 
 			Titulo = "Presentación";
 			break;
 		case 4:
-			Titulo = "Comparecencía";
+			Titulo = "Comparecencóa";
 			break;
 		case 5:
 			Titulo = "Colaboración";

@@ -5,8 +5,14 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Blob;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
+
+
+
 
 //import com.demomapas.model.agenteendpoint.Agenteendpoint;
 //import com.demomapas.model.detenidoendpoint.Detenidoendpoint;
@@ -23,6 +29,7 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.virtualef.pgj.service.commandmentService.model.CommandmentDto;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -343,6 +350,40 @@ public class LevantarInformacion extends Activity{
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
 			super.onCreate(savedInstanceState);
+			
+			ObjetoMandamiento objeto = new ObjetoMandamiento();
+		//	List<CommandmentDto> a = new ArrayList<CommandmentDto>();
+			objeto = getIntent().getParcelableExtra("extra");
+		
+			//objeto = getArguments().getParcelable("prueba"); 
+			
+			
+//			if(o!=null){
+//				
+//				
+//				
+//				//Log.i("bundle", savedInstanceState.getString("quieras"));
+//						//ObjetoMandamiento o = savedInstanceState.getParcelable("mandamiento");
+//						Log.i("bundle no es null", "bundle no es  nnulo");
+//						if(o != null )
+//							Log.i("o no es null", "o no es  nnulo");
+//							//Mandamientos2 = o.Mandamientos;
+//							
+//							if(o.Mandamientos != null){
+//								Log.i(o.Mandamientos.size()+"", "jyhtgrew");
+//							
+//								
+//							}
+//							else
+//								Log.i("mandamientos 2 es nulo", "mandamientos 2 es nulo");
+//							for (CommandmentDto elementos : o.Mandamientos) {
+//								Log.i("t"+elementos.getAddress(), "direcciom");
+//							}
+//				
+//					}
+			
+			
+			
 			setTitle("Informacion Detenido");
 		//	inicializa_endpoints();
 			new InicializaCampos().execute();

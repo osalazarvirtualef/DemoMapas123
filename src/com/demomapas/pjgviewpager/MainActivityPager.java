@@ -2,7 +2,9 @@ package com.demomapas.pjgviewpager;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -21,6 +23,7 @@ import com.virtualef.pgj.service.commandmentService.CommandmentService;
 import com.virtualef.pgj.service.commandmentService.model.CollectionResponseCommandmentDto;
 import com.virtualef.pgj.service.commandmentService.model.CommandmentDto;
 
+import android.R.array;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -45,6 +48,7 @@ public class MainActivityPager extends FragmentActivity {
 	public static Stack<Fragment> fragmentos;
 	public static Stack<String> elementos;
 	public static  CollectionResponseCommandmentDto Mandamientos = null;
+	public static ArrayList<CommandmentDto> Mandamientos2 = new ArrayList<CommandmentDto>();
 	public static ArrayList<CommandmentDto> aprehension = new ArrayList<CommandmentDto>();
 	public static ArrayList<CommandmentDto> reaprehension = new ArrayList<CommandmentDto>();
 	public static ArrayList<CommandmentDto> presentacion = new ArrayList<CommandmentDto>();
@@ -59,14 +63,131 @@ public class MainActivityPager extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-	
 		
+		if(savedInstanceState!=null){
+	//Log.i("bundle", savedInstanceState.getString("quieras"));
+//			ObjetoMandamiento o = savedInstanceState.getParcelable("mandamiento");
+//			Log.i("bundle no es null", "bundle no es  nnulo");
+//			if(o != null )
+//				Log.i("o no es null", "o no es  nnulo");
+//				//Mandamientos2 = o.Mandamientos;
+//				
+//				if(o.Mandamientos != null){
+//					Log.i(o.Mandamientos.size()+"", "jyhtgrew");
+//				
+//					
+//				}
+//				else
+//					Log.i("mandamientos 2 es nulo", "mandamientos 2 es nulo");
+//				for (CommandmentDto elementos : Mandamientos2) {
+//					Log.i("t"+elementos.getAddress(), "direcciom");
+//				}
+			setTitle("");
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			ActionBar actionBar = getActionBar();
+			actionBar.setDisplayHomeAsUpEnabled(true);
+
+			Preferences = getApplicationContext().getSharedPreferences(
+					"settings", 0);
+			  progressDialog = new ProgressDialog(MainActivityPager.this);  
+		    //Set the progress dialog to display a horizontal bar .  
+		    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
+		    //Set the dialog title to 'Loading...'.  
+		    progressDialog.setTitle("Obteniendo Mandamientos...");  
+		    //Set the dialog message to 'Loading application View, please wait...'.  
+		    progressDialog.setMessage("Descargando...");  
+		    //This dialog can't be canceled by pressing the back key.  
+		    progressDialog.setCancelable(false);  
+		    //This dialog isn't indeterminate.  
+		    progressDialog.setIndeterminate(false);  
+		    //The maximum number of progress items is 100.  
+		    progressDialog.setMax(100);  
+		    //Set the current progress to zero.  
+		    progressDialog.setProgress(0);  
+		    //Display the progress dialog.  
+		    progressDialog.show(); 
+		    
+		    new ObtenerInformacion(getApplicationContext()).execute();
+	
+		}else{
+		setTitle("");
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+
+		
+		
+		setContentView(R.layout.activity_main_activity_pager);
+		Preferences = getApplicationContext().getSharedPreferences(
+				"settings", 0);
+		
+		
+		
+//		Bundle bundle = new Bundle();
+	//	
+//		ObjetoMandamiento objeto = new ObjetoMandamiento();
+//		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+//		objeto.aprehension =  aprehension;
+//		objeto.reaprehension = reaprehension;
+//		objeto.presentacion = presentacion;
+//		objeto.comparecencia =  comparecencia;
+//		objeto.colaboracion = colaboracion;
+//		objeto.traslados =  traslados;
+//		bundle.putParcelable("prueba", objeto);
+//		BasePager paginas = new BasePager();
+//		paginas.setArguments(bundle);
+//		fragmentos = new Stack<Fragment>();
+//		elementos = new Stack<String>();
+//		FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+//		tx.setCustomAnimations(R.animator.enter,
+//				R.animator.exit, R.animator.pop_enter,
+//				R.animator.pop_exit);
+//		tx.replace(R.id.frm_lyt_mainMenu, fragmentos.push(paginas));
+//		elementos.push("paginas");
+	//	
+//		tx.commit();
+
+
+		  progressDialog = new ProgressDialog(MainActivityPager.this);  
+	    //Set the progress dialog to display a horizontal bar .  
+	    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
+	    //Set the dialog title to 'Loading...'.  
+	    progressDialog.setTitle("Obteniendo Mandamientos...");  
+	    //Set the dialog message to 'Loading application View, please wait...'.  
+	    progressDialog.setMessage("Descargando...");  
+	    //This dialog can't be canceled by pressing the back key.  
+	    progressDialog.setCancelable(false);  
+	    //This dialog isn't indeterminate.  
+	    progressDialog.setIndeterminate(false);  
+	    //The maximum number of progress items is 100.  
+	    progressDialog.setMax(100);  
+	    //Set the current progress to zero.  
+	    progressDialog.setProgress(0);  
+	    //Display the progress dialog.  
+	    progressDialog.show(); 
+	    
+	    new ObtenerInformacion(getApplicationContext()).execute();
+	
+		}
 	System.out.println();
 	super.onCreate(savedInstanceState);
 	Log.i("estoy en el oncreate", "estoy en el oncreate");
 		
 	}
+		
 	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		//outState.putString("quieras", "quieras");
+		Log.i("ciclo de vida", "onsavedinstance");
+		ObjetoMandamiento objeto = new ObjetoMandamiento();
+		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+		outState.putParcelable("mandamiento", objeto);
+		
+		
+	}
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -104,7 +225,7 @@ public class MainActivityPager extends FragmentActivity {
 
 			return true;
 
-			// --A���adimos el caso para cuando se pulse el boton home
+			// --A���������adimos el caso para cuando se pulse el boton home
 
 		case android.R.id.home:
 //			Toast.makeText(this, "Has pulsado el Home del Action Bar",
@@ -142,6 +263,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 	// TODO Auto-generated method stub
 	CrearMenu(menu);
 	return super.onCreateOptionsMenu(menu);
+
+    
 }
 
 private void CrearMenu(Menu menu) {
@@ -178,90 +301,34 @@ private void CrearMenu(Menu menu) {
 @Override
 protected void onResume() {
 	// TODO Auto-generated method stub
-	setTitle("Policía de Investigación");
-	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-	ActionBar actionBar = getActionBar();
-	actionBar.setDisplayHomeAsUpEnabled(true);
 
-	
-	
-	setContentView(R.layout.activity_main_activity_pager);
-	Preferences = getApplicationContext().getSharedPreferences(
-			"settings", 0);
-	
-	
-	
-//	Bundle bundle = new Bundle();
-//	
-//	ObjetoMandamiento objeto = new ObjetoMandamiento();
-//	objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
-//	objeto.aprehension =  aprehension;
-//	objeto.reaprehension = reaprehension;
-//	objeto.presentacion = presentacion;
-//	objeto.comparecencia =  comparecencia;
-//	objeto.colaboracion = colaboracion;
-//	objeto.traslados =  traslados;
-//	bundle.putParcelable("prueba", objeto);
-//	BasePager paginas = new BasePager();
-//	paginas.setArguments(bundle);
-//	fragmentos = new Stack<Fragment>();
-//	elementos = new Stack<String>();
-//	FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-//	tx.setCustomAnimations(R.animator.enter,
-//			R.animator.exit, R.animator.pop_enter,
-//			R.animator.pop_exit);
-//	tx.replace(R.id.frm_lyt_mainMenu, fragmentos.push(paginas));
-//	elementos.push("paginas");
-//	
-//	tx.commit();
-
-
-	  progressDialog = new ProgressDialog(MainActivityPager.this);  
-    //Set the progress dialog to display a horizontal bar .  
-    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
-    //Set the dialog title to 'Loading...'.  
-    progressDialog.setTitle("Obteniendo Mandamientos...");  
-    //Set the dialog message to 'Loading application View, please wait...'.  
-    progressDialog.setMessage("Descargando...");  
-    //This dialog can't be canceled by pressing the back key.  
-    progressDialog.setCancelable(false);  
-    //This dialog isn't indeterminate.  
-    progressDialog.setIndeterminate(false);  
-    //The maximum number of progress items is 100.  
-    progressDialog.setMax(100);  
-    //Set the current progress to zero.  
-    progressDialog.setProgress(0);  
-    //Display the progress dialog.  
-    progressDialog.show(); 
-    
-    new ObtenerInformacion(getApplicationContext()).execute();
 		
 	super.onResume();
 }
-@Override
-public void onBackPressed() {
-	// TODO Auto-generated method stub
-	if(elementos.size()>1)
-	{
-		fragmentos.pop();
-		elementos.pop();
-		FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-		
-		
-		tx.setCustomAnimations(R.animator.enter,
-				R.animator.exit, R.animator.pop_enter,
-				R.animator.pop_exit);
-		if(elementos.peek().equals("paginas")){
-			BasePager base = new BasePager();
-		tx.replace(R.id.frm_lyt_mainMenu,base) ;
-		}
-		
-		
-		tx.commit();
-	}
-	else
-	super.onBackPressed();
-}
+//@Override
+//public void onBackPressed() {
+//	// TODO Auto-generated method stub
+//	if(elementos.size()>1)
+//	{
+//		fragmentos.pop();
+//		elementos.pop();
+//		FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+//		
+//		
+//		tx.setCustomAnimations(R.animator.enter,
+//				R.animator.exit, R.animator.pop_enter,
+//				R.animator.pop_exit);
+//		if(elementos.peek().equals("paginas")){
+//			BasePager base = new BasePager();
+//		tx.replace(R.id.frm_lyt_mainMenu,base) ;
+//		}
+//		
+//		
+//		tx.commit();
+//	}
+//	else
+//	super.onBackPressed();
+//}
 
 
 public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
@@ -280,6 +347,7 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 		{
 		MandamientoEndpoint = endpoints.InicializacionMandamiento();
 		try {
+			Log.i("entre el try", "entre al try");
 
 			Mandamientos = MandamientoEndpoint.getCommandmentByAgentId(Preferences.getLong(Constants.idAgente,0L)).execute();
 			
@@ -327,12 +395,12 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 		
 		ObjetoMandamiento objeto = new ObjetoMandamiento();
 		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
-		objeto.aprehension =  aprehension;
-		objeto.reaprehension = reaprehension;
-		objeto.presentacion = presentacion;
-		objeto.comparecencia =  comparecencia;
-		objeto.colaboracion = colaboracion;
-		objeto.traslados =  traslados;
+//		objeto.aprehension =  aprehension;
+//		objeto.reaprehension = reaprehension;
+//		objeto.presentacion = presentacion;
+//		objeto.comparecencia =  comparecencia;
+//		objeto.colaboracion = colaboracion;
+//		objeto.traslados =  traslados;
 		bundle.putParcelable("prueba", objeto);
 		BasePager paginas = new BasePager();
 		paginas.setArguments(bundle);
@@ -343,6 +411,7 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 				R.animator.exit, R.animator.pop_enter,
 				R.animator.pop_exit);
 		tx.replace(R.id.frm_lyt_mainMenu, fragmentos.push(paginas));
+		tx.addToBackStack(null);
 		elementos.push("paginas");
 		
 		tx.commit();

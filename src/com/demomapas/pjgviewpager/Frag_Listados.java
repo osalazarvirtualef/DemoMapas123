@@ -23,7 +23,10 @@ import org.w3c.dom.ls.LSInput;
 
 
 
+
+
 import com.demomapas.LevantarInformacion;
+import com.demomapas.ObjetoMandamiento;
 import com.demomapas.Pagina1;
 import com.demomapas.R;
 import com.demomapas.adapters.Adp_Base_ListaReferencia;
@@ -85,7 +88,7 @@ public class Frag_Listados extends Fragment {
 		ArrayList<CommandmentDto> elementos = new ArrayList<CommandmentDto>();
 	switch (Tipo) {
 	case com.demomapas.Constants.OrdenesAprehension:
-		Log.i("tamaño aprehension", MainActivityPager.aprehension.size()+"");
+		Log.i("tama��o aprehension", MainActivityPager.aprehension.size()+"");
 		elementos = MainActivityPager.aprehension;
 //		for (CommandmentDto elemento : MainActivityPager.aprehension) {
 //			Referencia ref = new Referencia();
@@ -108,7 +111,7 @@ public class Frag_Listados extends Fragment {
 //		}
 		break;
 	case com.demomapas.Constants.OrdenesReaprehension:
-		Log.i("tamaño aprehension", MainActivityPager.reaprehension.size()+"");
+		Log.i("tama��o aprehension", MainActivityPager.reaprehension.size()+"");
 		elementos = MainActivityPager.reaprehension;
 //		for (CommandmentDto elemento : MainActivityPager.reaprehension) {
 //			Referencia ref = new Referencia();
@@ -132,22 +135,22 @@ public class Frag_Listados extends Fragment {
 		
 		break;
 	case com.demomapas.Constants.OrdenesPresentacion:
-		Log.i("tamaño aprehension", MainActivityPager.presentacion.size()+"");
+		Log.i("tama��o aprehension", MainActivityPager.presentacion.size()+"");
 		elementos = MainActivityPager.presentacion;
 		
 		break;
 	case com.demomapas.Constants.OrdenesComparecencia:
-		Log.i("tamaño aprehension", MainActivityPager.comparecencia.size()+"");
+		Log.i("tama��o aprehension", MainActivityPager.comparecencia.size()+"");
 		elementos = MainActivityPager.comparecencia;
 		
 		break;
 	case com.demomapas.Constants.OficiosColaboracion:
-		Log.i("tamaño aprehension", MainActivityPager.colaboracion.size()+"");
+		Log.i("tama��o aprehension", MainActivityPager.colaboracion.size()+"");
 		elementos = MainActivityPager.colaboracion;
 		
 		break;
 	case com.demomapas.Constants.Traslados:
-		Log.i("tamaño aprehension", MainActivityPager.traslados.size()+"");
+		Log.i("tama��o aprehension", MainActivityPager.traslados.size()+"");
 		elementos = MainActivityPager.traslados;
 		
 		break;
@@ -243,6 +246,36 @@ public class Frag_Listados extends Fragment {
 					bundle.putLong("Position2", arg3);
 					remplazo.setArguments(bundle);
 					
+					
+					ObjetoMandamiento objeto = new ObjetoMandamiento();
+					objeto.Mandamientos = (ArrayList<CommandmentDto>) MainActivityPager.Mandamientos.getItems();
+//					objeto.aprehension =  aprehension;
+//					objeto.reaprehension = reaprehension;
+//					objeto.presentacion = presentacion;
+//					objeto.comparecencia =  comparecencia;
+//					objeto.colaboracion = colaboracion;
+//					objeto.traslados =  traslados;
+					bundle.putParcelable("prueba", objeto);
+					BasePager paginas = new BasePager();
+					paginas.setArguments(bundle);
+					
+					/*
+					 * 
+					 * 
+					 * 
+					 * 		ObjetoMandamiento objeto = new ObjetoMandamiento();
+		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+//		objeto.aprehension =  aprehension;
+//		objeto.reaprehension = reaprehension;
+//		objeto.presentacion = presentacion;
+//		objeto.comparecencia =  comparecencia;
+//		objeto.colaboracion = colaboracion;
+//		objeto.traslados =  traslados;
+		bundle.putParcelable("prueba", objeto);
+		BasePager paginas = new BasePager();
+		paginas.setArguments(bundle);
+					 */
+					
 //					bundle.putInt("Tipo", Constants.OrdenesReaprehension);
 //					lista1.setArguments(bundle);
 					
@@ -253,8 +286,15 @@ public class Frag_Listados extends Fragment {
 					MainActivityPager.elementos.push("remplazo");
 			
 					//Act_Main.elementos.push("getFragmentManager");
-					tx.commit();
-			//		startActivity(new Intent(getActivity(), LevantarInformacion.class));
+					////////////tx.commit();
+//					Bundle b  = new Bundle();
+//					ObjetoMandamiento objeto = new ObjetoMandamiento();
+//					objeto.Mandamientos = (ArrayList<CommandmentDto>) MainActivityPager.Mandamientos.getItems();
+//					b.putParcelable("mandamiento", objeto);
+					Intent i = new Intent(getActivity(), LevantarInformacion.class);
+					i.putExtra("extra", objeto);
+					startActivity(i);
+					//startActivity(new Intent(getActivity(), LevantarInformacion.class));
 				
 					break;
 				}
