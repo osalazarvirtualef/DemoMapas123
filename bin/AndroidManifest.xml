@@ -6,7 +6,11 @@
 
     <uses-sdk
         android:minSdkVersion="15"
+<<<<<<< Updated upstream
         android:targetSdkVersion="19" />
+=======
+        android:targetSdkVersion="22" />
+>>>>>>> Stashed changes
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -38,7 +42,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/pdi"
+<<<<<<< Updated upstream
         android:label=""
+=======
+        android:label="@string/app_name"
+>>>>>>> Stashed changes
         android:theme="@style/CustomActionBarTheme" >
         <activity
             android:name=".MainActivity"
@@ -51,11 +59,19 @@
         </activity>
         <activity
             android:name=".MapView"
+<<<<<<< Updated upstream
             android:label="" >
         </activity>
         <activity
             android:name=".LevantarInformacion"
             android:label=""> 
+=======
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".LevantarInformacion"
+            android:label="@string/app_name" 
+>>>>>>> Stashed changes
             android:parentActivityName="com.demomapas.pgjviewpager.MainActivityPager">
             <meta-data 
                 android:name="android.support.PARENT_ACTIVITY"
@@ -63,6 +79,7 @@
                 />
         </activity>
 
+<<<<<<< Updated upstream
         
                <activity
             android:name=".LevantarInformacion2"
@@ -74,6 +91,8 @@
                 />
         </activity>
         
+=======
+>>>>>>> Stashed changes
         <service android:name=".GCMIntentService" />
 
         <receiver
@@ -94,7 +113,10 @@
         <activity
             android:name=".RegisterActivity"
             android:launchMode="singleTop"
+<<<<<<< Updated upstream
             android:label=""
+=======
+>>>>>>> Stashed changes
             android:screenOrientation="portrait" />
 
         <meta-data
@@ -140,6 +162,7 @@
 
         <activity
             android:name=".Principal"
+<<<<<<< Updated upstream
             android:label="" >
         </activity>
         <activity
@@ -149,10 +172,22 @@
         <activity
             android:name=".ListaOpciones"
             android:label=""
+=======
+            android:label="@string/title_activity_principal" >
+        </activity>
+        <activity
+            android:name=".MandamientosJudiciales"
+            android:label="@string/title_activity_mandamientos_judiciales" >
+        </activity>
+        <activity
+            android:name=".ListaOpciones"
+            android:label="@string/title_activity_lista_opciones"
+>>>>>>> Stashed changes
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".MandamientosJudicialesList"
+<<<<<<< Updated upstream
             android:label="" >
         </activity>
         <activity
@@ -175,6 +210,30 @@
         <activity
             android:name=".NumerosEmergencia"
             android:label="" >
+=======
+            android:label="@string/title_activity_mandamientos_judiciales_list" >
+        </activity>
+        <activity
+            android:name=".mandamientos.OrdenesAprehension"
+            android:label="@string/title_activity_ordenes_aprehension" >
+        </activity>
+        <activity
+            android:name=".Lfve"
+            android:label="@string/title_activity_lfve" >
+        </activity>
+        <activity
+            android:name=".pjgviewpager.BasePager"
+            android:label="@string/title_activity_base_pager" >
+        </activity>
+        <activity
+            android:name=".pjgviewpager.MainActivityPager"
+            android:launchMode="singleTop"
+            android:label="@string/title_activity_main_activity_pager" >
+        </activity>
+        <activity
+            android:name=".NumerosEmergencia"
+            android:label="@string/title_activity_numeros_emergencia" >
+>>>>>>> Stashed changes
         </activity>
     </application>
 

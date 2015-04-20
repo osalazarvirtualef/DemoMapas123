@@ -94,7 +94,7 @@ public class ObjetoMandamiento implements Parcelable {
 //	    in.readFloatArray(notas);
 		//in.readList(Mandamientos, null);
 		ArrayList<CommandmentDto> products = new ArrayList<CommandmentDto>();
-		in.readList(products,null);
+		in.readTypedList(Mandamientos, null);
 	   // in.readList(Mandamientos, null);
 	}
 }
