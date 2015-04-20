@@ -25,7 +25,9 @@ import org.w3c.dom.ls.LSInput;
 
 
 
+
 import com.demomapas.LevantarInformacion;
+import com.demomapas.LevantarInformacion2;
 import com.demomapas.ObjetoMandamiento;
 import com.demomapas.Pagina1;
 import com.demomapas.R;
@@ -255,7 +257,7 @@ public class Frag_Listados extends Fragment {
 //					objeto.comparecencia =  comparecencia;
 //					objeto.colaboracion = colaboracion;
 //					objeto.traslados =  traslados;
-					bundle.putParcelable("prueba", objeto);
+					//bundle.putParcelable("prueba", objeto);
 					BasePager paginas = new BasePager();
 					paginas.setArguments(bundle);
 					
@@ -291,8 +293,10 @@ public class Frag_Listados extends Fragment {
 //					ObjetoMandamiento objeto = new ObjetoMandamiento();
 //					objeto.Mandamientos = (ArrayList<CommandmentDto>) MainActivityPager.Mandamientos.getItems();
 //					b.putParcelable("mandamiento", objeto);
-					Intent i = new Intent(getActivity(), LevantarInformacion.class);
-					i.putExtra("extra", objeto);
+					Intent i = new Intent(getActivity(), LevantarInformacion2.class);
+					i.putExtra("Tipo", Tipo);
+					i.putExtra("Position1", arg2);
+					i.putExtra("Position2", arg3);
 					startActivity(i);
 					//startActivity(new Intent(getActivity(), LevantarInformacion.class));
 				

@@ -64,7 +64,7 @@ public class MainActivityPager extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
-		if(savedInstanceState!=null){
+	/////9	if(savedInstanceState!=null){
 	//Log.i("bundle", savedInstanceState.getString("quieras"));
 //			ObjetoMandamiento o = savedInstanceState.getParcelable("mandamiento");
 //			Log.i("bundle no es null", "bundle no es  nnulo");
@@ -82,34 +82,37 @@ public class MainActivityPager extends FragmentActivity {
 //				for (CommandmentDto elementos : Mandamientos2) {
 //					Log.i("t"+elementos.getAddress(), "direcciom");
 //				}
-			setTitle("");
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-			ActionBar actionBar = getActionBar();
-			actionBar.setDisplayHomeAsUpEnabled(true);
-
-			Preferences = getApplicationContext().getSharedPreferences(
-					"settings", 0);
-			  progressDialog = new ProgressDialog(MainActivityPager.this);  
-		    //Set the progress dialog to display a horizontal bar .  
-		    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
-		    //Set the dialog title to 'Loading...'.  
-		    progressDialog.setTitle("Obteniendo Mandamientos...");  
-		    //Set the dialog message to 'Loading application View, please wait...'.  
-		    progressDialog.setMessage("Descargando...");  
-		    //This dialog can't be canceled by pressing the back key.  
-		    progressDialog.setCancelable(false);  
-		    //This dialog isn't indeterminate.  
-		    progressDialog.setIndeterminate(false);  
-		    //The maximum number of progress items is 100.  
-		    progressDialog.setMax(100);  
-		    //Set the current progress to zero.  
-		    progressDialog.setProgress(0);  
-		    //Display the progress dialog.  
-		    progressDialog.show(); 
-		    
-		    new ObtenerInformacion(getApplicationContext()).execute();
-	
-		}else{
+			
+		
+//		setContentView(R.layout.activity_main_activity_pager);
+//			setTitle("");
+//			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//			ActionBar actionBar = getActionBar();
+//			actionBar.setDisplayHomeAsUpEnabled(true);
+//
+//			Preferences = getApplicationContext().getSharedPreferences(
+//					"settings", 0);
+//			  progressDialog = new ProgressDialog(MainActivityPager.this);  
+//		    //Set the progress dialog to display a horizontal bar .  
+//		    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
+//		    //Set the dialog title to 'Loading...'.  
+//		    progressDialog.setTitle("Obteniendo Mandamientos...");  
+//		    //Set the dialog message to 'Loading application View, please wait...'.  
+//		    progressDialog.setMessage("Descargando...");  
+//		    //This dialog can't be canceled by pressing the back key.  
+//		    progressDialog.setCancelable(false);  
+//		    //This dialog isn't indeterminate.  
+//		    progressDialog.setIndeterminate(false);  
+//		    //The maximum number of progress items is 100.  
+//		    progressDialog.setMax(100);  
+//		    //Set the current progress to zero.  
+//		    progressDialog.setProgress(0);  
+//		    //Display the progress dialog.  
+//		    progressDialog.show(); 
+//		    
+//		    new ObtenerInformacion(getApplicationContext()).execute();
+//	
+//		}else{
 		setTitle("");
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		ActionBar actionBar = getActionBar();
@@ -168,7 +171,7 @@ public class MainActivityPager extends FragmentActivity {
 	    
 	    new ObtenerInformacion(getApplicationContext()).execute();
 	
-		}
+	//	}
 	System.out.println();
 	super.onCreate(savedInstanceState);
 	Log.i("estoy en el oncreate", "estoy en el oncreate");
@@ -354,17 +357,24 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 			for (CommandmentDto elementos : Mandamientos.getItems()) {
 				if(elementos.getCommandmentType().equalsIgnoreCase("APREHENSION")){
 					aprehension.add(elementos);
+					Log.i("aprehension asignada", "aprehension asignada");
 					
 				}else if(elementos.getCommandmentType().equalsIgnoreCase("REAPREHENSION")){
+					
 					reaprehension.add(elementos);
+					Log.i("reaprehension asignada", "reaprehension asignada");
 				}else if(elementos.getCommandmentType().equalsIgnoreCase("PRESENTACION")){
 					presentacion.add(elementos);
+					Log.i("presentacion asignada", "presentacion asignada");
 				}else if(elementos.getCommandmentType().equalsIgnoreCase("COMPARECENCIA")){
 					comparecencia.add(elementos);
+					Log.i("comparecencia asignada", "comparecencia asignada");
 				}else if(elementos.getCommandmentType().equalsIgnoreCase("COLABORACION")){
 					colaboracion.add(elementos);
+					Log.i("colaboracion asignada", "colaboracion asignada");
 				}else if(elementos.getCommandmentType().equalsIgnoreCase("TRASLADOS")){
 					traslados.add(elementos);
+					Log.i("traslados asignada", "traslados asignada");
 				}
 				System.out.println();
 				
@@ -378,6 +388,7 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			Log.e("entre al catch", "entre al cath");
 		
 			
 		}
@@ -411,8 +422,9 @@ public class ObtenerInformacion extends AsyncTask<Void, Void, Void> {
 				R.animator.exit, R.animator.pop_enter,
 				R.animator.pop_exit);
 		tx.replace(R.id.frm_lyt_mainMenu, fragmentos.push(paginas));
-		tx.addToBackStack(null);
+	
 		elementos.push("paginas");
+		Log.i("on post execute", "on post execute");
 		
 		tx.commit();
 		progressDialog.dismiss();

@@ -9,6 +9,7 @@
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:layout_centerHorizontal="true" >
 
         <LinearLayout
@@ -27,8 +28,9 @@
                     android:id="@+id/TextView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Juzgado:  "
                     android:textColor="@color/blue"
-                    android:text="Juzgado:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/juzgadoText"
@@ -48,8 +50,9 @@
                     android:id="@+id/TextView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Expediente:  "
                     android:textColor="@color/blue"
-                    android:text="Expediente:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/expedienteText"
@@ -69,8 +72,9 @@
                     android:id="@+id/TextView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Oficio:  "
                     android:textColor="@color/blue"
-                    android:text="Oficio:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/oficioText"
@@ -89,8 +93,9 @@
                     android:id="@+id/TextView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Juez:  "
                     android:textColor="@color/blue"
-                    android:text="Juez:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/juezText"
@@ -109,8 +114,9 @@
                     android:id="@+id/TextView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Delito:  "
                     android:textColor="@color/blue"
-                    android:text="Delito:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/delitoText"
@@ -129,8 +135,9 @@
                     android:id="@+id/TextView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Requerido:  "
                     android:textColor="@color/blue"
-                    android:text="Requerido:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/requeridoText"
@@ -149,8 +156,9 @@
                     android:id="@+id/TextView08"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Alias:  "
                     android:textColor="@color/blue"
-                    android:text="Alias:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/aliasText"
@@ -169,8 +177,9 @@
                     android:id="@+id/TextView06"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Edad:  "
                     android:textColor="@color/blue"
-                    android:text="Edad:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/edadText"
@@ -189,8 +198,9 @@
                     android:id="@+id/TextView04"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Sexo:  "
                     android:textColor="@color/blue"
-                    android:text="Sexo:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/sexoText"
@@ -209,8 +219,9 @@
                     android:id="@+id/TextView02"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Domicilio:  "
                     android:textColor="@color/blue"
-                    android:text="Domicilio:  " />
+                    android:width="100dp" />
 
                 <TextView
                     android:id="@+id/domicilioText"

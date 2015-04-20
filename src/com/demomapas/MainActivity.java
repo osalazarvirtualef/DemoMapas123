@@ -56,6 +56,7 @@ public class MainActivity extends FragmentActivity implements LocationListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setTitle("");
 		setContentView(R.layout.activity_main);
 		Intent intent = new Intent(this, RegisterActivity.class);
 //		//Intent intent = new Intent(this, MapView.class);
