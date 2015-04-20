@@ -32,7 +32,7 @@ import android.os.Parcelable;
  * @author Google, Inc.
  */
 @SuppressWarnings("javadoc")
-public final class CommandmentDto extends com.google.api.client.json.GenericJson implements Parcelable{
+public final class CommandmentDto extends com.google.api.client.json.GenericJson{
 
   /**
    * The value may be {@code null}.
@@ -506,16 +506,6 @@ public final class CommandmentDto extends com.google.api.client.json.GenericJson
     return (CommandmentDto) super.clone();
   }
 
-@Override
-public int describeContents() {
-	// TODO Auto-generated method stub
-	return 0;
-}
 
-@Override
-public void writeToParcel(Parcel dest, int flags) {
-	// TODO Auto-generated method stub
-	
-}
 
 }

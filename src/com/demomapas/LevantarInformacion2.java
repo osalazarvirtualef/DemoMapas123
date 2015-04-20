@@ -42,6 +42,9 @@ import java.util.List;
 
 
 
+
+
+
 import com.demomapas.Pagina1.EnviarInformacion;
 import com.demomapas.endpoints.EndPointsInicializacion;
 import com.demomapas.pjgviewpager.MainActivityPager;
@@ -60,9 +63,12 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.virtualef.pgj.service.commandmentService.CommandmentService;
 import com.virtualef.pgj.service.commandmentService.model.CommandmentDto;
 
+import android.R.string;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -99,6 +105,7 @@ public class LevantarInformacion2 extends Activity{
 	int tipo;
 	 int position1;
 	 long position2;
+	 commandmentdto2 mandamientorecibido;
 	LinearLayout ListaOrdenesAprehension;
 	ImageView mImageView;
 	static Bitmap imagenphoto;
@@ -126,6 +133,7 @@ public class LevantarInformacion2 extends Activity{
 	public static TextView edad;
 	public static TextView sexo;
 	public static TextView domicilio;
+	public String mandamientoscadena;
 	
 	
 	public CommandmentDto mandamientoItem;
@@ -151,7 +159,7 @@ public class LevantarInformacion2 extends Activity{
 		outState.putInt("Tipo", tipo);
 		outState.putInt("Position1", position1);
 		outState.putLong("Position2", position2);
-		outState.putParcelable("mandamiento", info);
+		//outState.putParcelable("mandamiento", info);
 //		outState.putLong("id", );
 		super.onSaveInstanceState(outState);
 	}
@@ -183,27 +191,33 @@ public class LevantarInformacion2 extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pagina2);
-		try {
-			info = savedInstanceState.getParcelable("mandamiento");
-			Log.i("recupere info en el try", "recupere info en el try");
-		} catch (Exception e) {
-			// TODO: handle exception
-			Log.i("no recupere nada y ando en el catch","no recupere nada y ando en el catch");
-		}
-		
-		if(savedInstanceState!=null){
-			
-			tipo = savedInstanceState.getInt("Tipo");
-			position1 = savedInstanceState.getInt("Position1");
-			position2 = savedInstanceState.getLong("Position2");
-			
-		}
+//		try {
+//			info = savedInstanceState.getParcelable("mandamiento");
+//			Log.i("recupere info en el try", "recupere info en el try");
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			Log.i("no recupere nada y ando en el catch","no recupere nada y ando en el catch");
+//		}
+//		
+//		if(savedInstanceState!=null){
+//			
+//			tipo = savedInstanceState.getInt("Tipo");
+//			position1 = savedInstanceState.getInt("Position1");
+//			position2 = savedInstanceState.getLong("Position2");
+//			
+//		}
 		try {
 			 tipo = getIntent().getIntExtra("Tipo", 0);
 			  position1 = getIntent().getIntExtra("Position1",0);
 			  position2 = getIntent().getIntExtra("Position2",0);
+			  mandamientoscadena = getIntent().getStringExtra("mandamientoscadena");
+			   mandamientorecibido = new Gson().fromJson(mandamientoscadena, commandmentdto2.class);
+
+			  System.out.println();
+			  
 		} catch (Exception e) {
 			// TODO: handle exception
+			Log.i("error en el parse", e.getMessage());
 		}
 
 	  Log.i("el valor de tipo es", tipo+"");
@@ -240,52 +254,53 @@ public class LevantarInformacion2 extends Activity{
 			sexo = (TextView) findViewById(R.id.sexoText);
 			domicilio = (TextView) findViewById(R.id.domicilioText);
 			
+	
+			
+//			if(MainActivityPager.Mandamientos==null)
+//			{
+//				if(info==null)
+//				Log.i("info es nulo","");
+//				else
+//					Log.i("info no es nulo","");
+//				
+//				
+//			}
+	//		else{
 			
 			
-			if(MainActivityPager.Mandamientos==null)
-			{
-				if(info==null)
-				Log.i("info es nulo","");
-				else
-					Log.i("info no es nulo","");
-				
-				
-			}else{
+//	  		if(tipo == Constants.OrdenesAprehension){
+//	  			info = MainActivityPager.aprehension.get(position1);
+//	  			System.out.println();
+//	  			
+//	  		}else if(tipo == Constants.OrdenesReaprehension){
+//	  			info = MainActivityPager.reaprehension.get(position1);
+//	  			System.out.println();
+//	  		}else if(tipo == Constants.OrdenesPresentacion){
+//	  			info = MainActivityPager.presentacion.get(position1);
+//	  			System.out.println();
+//	  		}else if(tipo == Constants.OrdenesComparecencia){
+//	  			info = MainActivityPager.comparecencia.get(position1);
+//	  			System.out.println();
+//	  		}else if(tipo == Constants.OficiosColaboracion){
+//	  			info = MainActivityPager.colaboracion.get(position1);
+//	  			System.out.println();
+//	  		}else if(tipo == Constants.Traslados){
+//	  			info = MainActivityPager.traslados.get(position1);
+//	  			System.out.println();
+//	  		}
 			
-			
-	  		if(tipo == Constants.OrdenesAprehension){
-	  			info = MainActivityPager.aprehension.get(position1);
-	  			System.out.println();
-	  			
-	  		}else if(tipo == Constants.OrdenesReaprehension){
-	  			info = MainActivityPager.reaprehension.get(position1);
-	  			System.out.println();
-	  		}else if(tipo == Constants.OrdenesPresentacion){
-	  			info = MainActivityPager.presentacion.get(position1);
-	  			System.out.println();
-	  		}else if(tipo == Constants.OrdenesComparecencia){
-	  			info = MainActivityPager.comparecencia.get(position1);
-	  			System.out.println();
-	  		}else if(tipo == Constants.OficiosColaboracion){
-	  			info = MainActivityPager.colaboracion.get(position1);
-	  			System.out.println();
-	  		}else if(tipo == Constants.Traslados){
-	  			info = MainActivityPager.traslados.get(position1);
-	  			System.out.println();
-	  		}
-			
-	  		if(info.getCourt()!=null)
-	  		juzgado.setText(info.getCourt()); 
-	  		if(info.getRecord()!=null)
-			expediente.setText(info.getRecord());
-	  		if(info.getObservations()!=null)
-			oficio.setText(info.getObservations());
-			if(info.getJudge()!=null)
-			juez.setText(info.getJudge());
-			if(info.getOrder()!=null)
-			delito.setText(info.getOrder());
-			if((info.getRequire().getPerson().getName()!=null && info.getRequire().getPerson().getFirstName() != null && info.getRequire().getPerson().getLastName() != null))
-			requerido.setText(info.getRequire().getPerson().getName()+" "+info.getRequire().getPerson().getFirstName()+" "+info.getRequire().getPerson().getLastName());
+	  		if(  mandamientorecibido.getCourt()!=null)
+	  		juzgado.setText(mandamientorecibido.getCourt()); 
+	  		if(mandamientorecibido.getRecord()!=null)
+			expediente.setText(mandamientorecibido.getRecord());
+	  		if(mandamientorecibido.getObservations()!=null)
+			oficio.setText(mandamientorecibido.getObservations());
+			if(mandamientorecibido.getJudge()!=null)
+			juez.setText(mandamientorecibido.getJudge());
+			if(mandamientorecibido.getOrder()!=null)
+			delito.setText(mandamientorecibido.getOrder());
+			//if((mandamientorecibido.getRequire().getPerson().getName()!=null && mandamientorecibido.getRequire().getPerson().getFirstName() != null && mandamientorecibido.getRequire().getPerson().getLastName() != null))
+			//requerido.setText(info.getRequire().getPerson().getName()+" "+info.getRequire().getPerson().getFirstName()+" "+info.getRequire().getPerson().getLastName());
 			if(info.getRequire().getAlias()!=null)
 			alias.setText(info.getRequire().getAlias());
 			if(info.getRequire().getPerson().getAge()!=null)
@@ -294,7 +309,7 @@ public class LevantarInformacion2 extends Activity{
 			sexo.setText(info.getRequire().getPerson().getSex());
 			if(info.getAddress()!=null)
 			domicilio.setText(info.getAddress());
-			}
+	//		}
 //			mImageView.setVisibility(View.GONE);
 //			ImagenAudio.setVisibility(View.GONE);
 			ImagenAudio.setOnClickListener(new View.OnClickListener() {
@@ -337,7 +352,7 @@ public class LevantarInformacion2 extends Activity{
 					// TODO Auto-generated method stub
 			        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
 			        //Set the dialog title to 'Loading...'.  
-			        progressDialog.setTitle("Enviando Información...");  
+			        progressDialog.setTitle("Enviando Informaci��n...");  
 			        //Set the dialog message to 'Loading application View, please wait...'.  
 			        progressDialog.setMessage("Espere...");  
 			        //This dialog can't be canceled by pressing the back key.  

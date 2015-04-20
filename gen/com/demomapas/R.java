@@ -382,18 +382,6 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int useViewLifecycle=0x7f010013;
-        /**  Defines the set of transition to be used between activities 
-         <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>slide</code></td><td>1</td><td></td></tr>
-<tr><td><code>none</code></td><td>2</td><td></td></tr>
-</table>
-         */
-        public static final int windowTransitionStyle=0x7f010025;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -506,126 +494,139 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020022;
         public static final int common_signin_btn_text_pressed_dark=0x7f020023;
         public static final int common_signin_btn_text_pressed_light=0x7f020024;
-        public static final int edittextfondo=0x7f020025;
-        public static final int ic_launcher=0x7f020026;
-        public static final int ic_plusone_medium_off_client=0x7f020027;
-        public static final int ic_plusone_small_off_client=0x7f020028;
-        public static final int ic_plusone_standard_off_client=0x7f020029;
-        public static final int ic_plusone_tall_off_client=0x7f02002a;
-        public static final int llamada=0x7f02002b;
-        public static final int logopgj=0x7f02002c;
-        public static final int logopgj2=0x7f02002d;
-        public static final int male=0x7f02002e;
-        public static final int microfono1=0x7f02002f;
-        public static final int pdi=0x7f020030;
-        public static final int pgj=0x7f020031;
-        public static final int powered_by_google_dark=0x7f020032;
-        public static final int powered_by_google_light=0x7f020033;
-        public static final int prison=0x7f020034;
-        public static final int prison2=0x7f020035;
-        public static final int reproducir=0x7f020036;
-        public static final int telefono=0x7f020037;
+        public static final int customboton=0x7f020025;
+        public static final int customboton2=0x7f020026;
+        public static final int customboton3=0x7f020027;
+        public static final int edittextfondo=0x7f020028;
+        public static final int ic_launcher=0x7f020029;
+        public static final int ic_plusone_medium_off_client=0x7f02002a;
+        public static final int ic_plusone_small_off_client=0x7f02002b;
+        public static final int ic_plusone_standard_off_client=0x7f02002c;
+        public static final int ic_plusone_tall_off_client=0x7f02002d;
+        public static final int llamada=0x7f02002e;
+        public static final int logopgj=0x7f02002f;
+        public static final int logopgj2=0x7f020030;
+        public static final int male=0x7f020031;
+        public static final int microfono1=0x7f020032;
+        public static final int pdi=0x7f020033;
+        public static final int pgj=0x7f020034;
+        public static final int powered_by_google_dark=0x7f020035;
+        public static final int powered_by_google_light=0x7f020036;
+        public static final int prison=0x7f020037;
+        public static final int prison2=0x7f020038;
+        public static final int reproducir=0x7f020039;
+        public static final int telefono=0x7f02003a;
     }
     public static final class id {
-        public static final int ButtonCall=0x7f0c005d;
-        public static final int EnviarInfo=0x7f0c003b;
-        public static final int LLy_lyt_fragment_baselistados=0x7f0c0060;
-        public static final int LinearMandamientos=0x7f0c001f;
-        public static final int ListaElementos=0x7f0c001a;
-        public static final int ListaOrdenesAprehension=0x7f0c0022;
-        public static final int RelativeListaOpciones=0x7f0c0019;
-        public static final int TextView02=0x7f0c0035;
-        public static final int TextView04=0x7f0c0033;
-        public static final int TextView06=0x7f0c0031;
-        public static final int TextView08=0x7f0c002f;
-        public static final int TextView10=0x7f0c002d;
-        public static final int TextView12=0x7f0c002b;
-        public static final int TextView14=0x7f0c0029;
-        public static final int TextView16=0x7f0c0027;
-        public static final int TextView18=0x7f0c0025;
-        public static final int TextView20=0x7f0c0023;
-        public static final int TomarAudio=0x7f0c003a;
-        public static final int TomarEvidencia=0x7f0c0055;
-        public static final int TomarEvidencia2=0x7f0c0039;
-        public static final int action_settings=0x7f0c0063;
+        public static final int ButtonCall=0x7f0c0067;
+        public static final int Documentos=0x7f0c001b;
+        public static final int Emergencias=0x7f0c001c;
+        public static final int EnviarInfo=0x7f0c0045;
+        public static final int LLy_lyt_fragment_baselistados=0x7f0c006a;
+        public static final int LinearMandamientos=0x7f0c0029;
+        public static final int ListaElementos=0x7f0c0019;
+        public static final int ListaOrdenesAprehension=0x7f0c002c;
+        public static final int Mandamientos=0x7f0c001a;
+        public static final int RelativeListaOpciones=0x7f0c0018;
+        public static final int TextView02=0x7f0c003f;
+        public static final int TextView04=0x7f0c003d;
+        public static final int TextView06=0x7f0c003b;
+        public static final int TextView08=0x7f0c0039;
+        public static final int TextView10=0x7f0c0037;
+        public static final int TextView12=0x7f0c0035;
+        public static final int TextView14=0x7f0c0033;
+        public static final int TextView16=0x7f0c0031;
+        public static final int TextView18=0x7f0c002f;
+        public static final int TextView20=0x7f0c002d;
+        public static final int TomarAudio=0x7f0c0044;
+        public static final int TomarEvidencia=0x7f0c005f;
+        public static final int TomarEvidencia2=0x7f0c0043;
+        public static final int Transmitir=0x7f0c001d;
+        public static final int action_settings=0x7f0c006d;
         public static final int adjust_height=0x7f0c0000;
         public static final int adjust_width=0x7f0c0001;
-        public static final int aliasText=0x7f0c0030;
-        public static final int apm=0x7f0c0050;
-        public static final int app=0x7f0c004f;
+        public static final int aliasText=0x7f0c003a;
+        public static final int apm=0x7f0c005a;
+        public static final int app=0x7f0c0059;
         public static final int book_now=0x7f0c0010;
+        public static final int button10=0x7f0c0023;
+        public static final int button11=0x7f0c0024;
+        public static final int button5=0x7f0c001e;
+        public static final int button6=0x7f0c001f;
+        public static final int button7=0x7f0c0020;
+        public static final int button8=0x7f0c0021;
+        public static final int button9=0x7f0c0022;
         public static final int buyButton=0x7f0c000c;
         public static final int buy_now=0x7f0c0011;
         public static final int buy_with_google=0x7f0c0012;
-        public static final int cargo=0x7f0c0052;
+        public static final int cargo=0x7f0c005c;
         public static final int classic=0x7f0c0014;
-        public static final int container=0x7f0c0018;
-        public static final int contenedorInfo=0x7f0c004d;
-        public static final int contenedorMain=0x7f0c001b;
-        public static final int content_frame=0x7f0c003c;
-        public static final int delito=0x7f0c0053;
-        public static final int delitoText=0x7f0c002c;
-        public static final int domicilioText=0x7f0c0036;
+        public static final int container=0x7f0c0017;
+        public static final int contenedorInfo=0x7f0c0057;
+        public static final int contenedorMain=0x7f0c0025;
+        public static final int content_frame=0x7f0c0046;
+        public static final int delito=0x7f0c005d;
+        public static final int delitoText=0x7f0c0036;
+        public static final int domicilioText=0x7f0c0040;
         public static final int donate_with_google=0x7f0c0013;
-        public static final int drw_mainMenu=0x7f0c001d;
-        public static final int edad=0x7f0c0051;
-        public static final int edadText=0x7f0c0032;
-        public static final int editTextContrasena=0x7f0c0047;
-        public static final int editTextUsuario=0x7f0c0046;
-        public static final int enviar=0x7f0c0057;
-        public static final int expedienteText=0x7f0c0026;
-        public static final int fecha=0x7f0c0056;
-        public static final int foto=0x7f0c0054;
-        public static final int fotoAudio=0x7f0c0038;
-        public static final int fotoEvidencia=0x7f0c0037;
-        public static final int frag_ubicacion=0x7f0c001c;
-        public static final int frm_lyt_mainMenu=0x7f0c001e;
+        public static final int drw_mainMenu=0x7f0c0027;
+        public static final int edad=0x7f0c005b;
+        public static final int edadText=0x7f0c003c;
+        public static final int editTextContrasena=0x7f0c0051;
+        public static final int editTextUsuario=0x7f0c0050;
+        public static final int enviar=0x7f0c0061;
+        public static final int expedienteText=0x7f0c0030;
+        public static final int fecha=0x7f0c0060;
+        public static final int foto=0x7f0c005e;
+        public static final int fotoAudio=0x7f0c0042;
+        public static final int fotoEvidencia=0x7f0c0041;
+        public static final int frag_ubicacion=0x7f0c0026;
+        public static final int frm_lyt_mainMenu=0x7f0c0028;
         public static final int grayscale=0x7f0c0015;
-        public static final int header=0x7f0c0062;
+        public static final int header=0x7f0c006c;
         public static final int holo_dark=0x7f0c0007;
         public static final int holo_light=0x7f0c0008;
         public static final int hybrid=0x7f0c0003;
-        public static final int imageView1=0x7f0c003e;
-        public static final int imagepdi=0x7f0c0045;
-        public static final int imgv_itemRow=0x7f0c0058;
-        public static final int juezText=0x7f0c002a;
-        public static final int juzgadoText=0x7f0c0024;
-        public static final int listTelefonos=0x7f0c0049;
-        public static final int listTelefonosActivity=0x7f0c0020;
-        public static final int lstv_listaMenu=0x7f0c004c;
-        public static final int lstv_listadosItems=0x7f0c0061;
+        public static final int imageView1=0x7f0c0048;
+        public static final int imagepdi=0x7f0c004f;
+        public static final int imgv_itemRow=0x7f0c0062;
+        public static final int juezText=0x7f0c0034;
+        public static final int juzgadoText=0x7f0c002e;
+        public static final int listTelefonos=0x7f0c0053;
+        public static final int listTelefonosActivity=0x7f0c002a;
+        public static final int lstv_listaMenu=0x7f0c0056;
+        public static final int lstv_listadosItems=0x7f0c006b;
         public static final int match_parent=0x7f0c000e;
         public static final int monochrome=0x7f0c0016;
-        public static final int msgView=0x7f0c003f;
-        public static final int nombre=0x7f0c004e;
+        public static final int msgView=0x7f0c0049;
+        public static final int nombre=0x7f0c0058;
         public static final int none=0x7f0c0002;
         public static final int normal=0x7f0c0004;
-        public static final int oficioText=0x7f0c0028;
-        public static final int pager_title_strip=0x7f0c005f;
-        public static final int password=0x7f0c0042;
+        public static final int oficioText=0x7f0c0032;
+        public static final int pager_title_strip=0x7f0c0069;
+        public static final int password=0x7f0c004c;
         public static final int production=0x7f0c0009;
-        public static final int regButton=0x7f0c0044;
-        public static final int regButton2=0x7f0c0048;
-        public static final int requeridoText=0x7f0c002e;
+        public static final int regButton=0x7f0c004e;
+        public static final int regButton2=0x7f0c0052;
+        public static final int requeridoText=0x7f0c0038;
         public static final int sandbox=0x7f0c000a;
         public static final int satellite=0x7f0c0005;
-        public static final int scrollView1=0x7f0c0021;
+        public static final int scrollView1=0x7f0c002b;
         public static final int selectionDetails=0x7f0c000d;
-        public static final int sexoText=0x7f0c0034;
-        public static final int slide=0x7f0c0017;
+        public static final int sexoText=0x7f0c003e;
         public static final int strict_sandbox=0x7f0c000b;
         public static final int terrain=0x7f0c0006;
-        public static final int textView1=0x7f0c003d;
-        public static final int textView2=0x7f0c0040;
-        public static final int textView3=0x7f0c0043;
-        public static final int textoPhone=0x7f0c005c;
-        public static final int txv_Expediente=0x7f0c005a;
-        public static final int txv_Juzgado=0x7f0c0059;
-        public static final int txv_Requerido=0x7f0c005b;
-        public static final int usuario=0x7f0c0041;
-        public static final int view_pager=0x7f0c005e;
-        public static final int vpag_referencia=0x7f0c004a;
-        public static final int vpagt_tabStrip=0x7f0c004b;
+        public static final int textView1=0x7f0c0047;
+        public static final int textView2=0x7f0c004a;
+        public static final int textView3=0x7f0c004d;
+        public static final int textoPhone=0x7f0c0066;
+        public static final int txv_Expediente=0x7f0c0064;
+        public static final int txv_Juzgado=0x7f0c0063;
+        public static final int txv_Requerido=0x7f0c0065;
+        public static final int usuario=0x7f0c004b;
+        public static final int view_pager=0x7f0c0068;
+        public static final int vpag_referencia=0x7f0c0054;
+        public static final int vpagt_tabStrip=0x7f0c0055;
         public static final int wrap_content=0x7f0c000f;
     }
     public static final class integer {
@@ -654,7 +655,8 @@ containing a value of this type.
         public static final int lyt_fragment_referencia=0x7f030013;
         public static final int lyt_fragmentprincipal=0x7f030014;
         public static final int lyt_listados_referencias=0x7f030015;
-        public static final int window_title=0x7f030016;
+        public static final int mapa=0x7f030016;
+        public static final int window_title=0x7f030017;
     }
     public static final class menu {
         public static final int base_pager=0x7f0b0000;
@@ -672,13 +674,13 @@ containing a value of this type.
     }
     public static final class string {
         public static final int accept=0x7f070002;
-        public static final int action_settings=0x7f07002f;
-        public static final int album_name=0x7f07002c;
-        public static final int app_name=0x7f070027;
-        public static final int btnIntend=0x7f070028;
-        public static final int btnIntendS=0x7f070029;
-        public static final int btnIntendV=0x7f07002a;
-        public static final int cannot=0x7f07002b;
+        public static final int action_settings=0x7f07002c;
+        public static final int album_name=0x7f070029;
+        public static final int app_name=0x7f070024;
+        public static final int btnIntend=0x7f070025;
+        public static final int btnIntendS=0x7f070026;
+        public static final int btnIntendV=0x7f070027;
+        public static final int cannot=0x7f070028;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f070009;
@@ -748,12 +750,6 @@ containing a value of this type.
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
         public static final int common_google_play_services_notification_ticker=0x7f070006;
-        /**  Message in confirmation dialog informing the user that the account could not be signed in. [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_sign_in_failed_text=0x7f070024;
-        /**  Title of confirmation dialog informing the user that the account could not be signed in. [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_sign_in_failed_title=0x7f070023;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
@@ -784,29 +780,26 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f070020;
-        /**  Message in confirmation dialog informing the user that one of the APIs they attepmt to access is not available. [CHAR LIMIT=NONE] 
-         */
-        public static final int commono_google_play_services_api_unavailable_text=0x7f070022;
         public static final int create_calendar_message=0x7f070005;
         public static final int create_calendar_title=0x7f070004;
         public static final int decline=0x7f070003;
-        public static final int hello=0x7f070026;
-        public static final int hello_world=0x7f07002e;
+        public static final int hello=0x7f070023;
+        public static final int hello_world=0x7f07002b;
         public static final int store_picture_message=0x7f070001;
         public static final int store_picture_title=0x7f070000;
-        public static final int title_activity_base_pager=0x7f070035;
-        public static final int title_activity_lfve=0x7f070034;
-        public static final int title_activity_lista_opciones=0x7f070031;
-        public static final int title_activity_main_activity_pager=0x7f070036;
-        public static final int title_activity_mandamientos_judiciales=0x7f070030;
-        public static final int title_activity_mandamientos_judiciales_list=0x7f070032;
-        public static final int title_activity_numeros_emergencia=0x7f070037;
-        public static final int title_activity_ordenes_aprehension=0x7f070033;
-        public static final int title_activity_principal=0x7f07002d;
+        public static final int title_activity_base_pager=0x7f070032;
+        public static final int title_activity_lfve=0x7f070031;
+        public static final int title_activity_lista_opciones=0x7f07002e;
+        public static final int title_activity_main_activity_pager=0x7f070033;
+        public static final int title_activity_mandamientos_judiciales=0x7f07002d;
+        public static final int title_activity_mandamientos_judiciales_list=0x7f07002f;
+        public static final int title_activity_numeros_emergencia=0x7f070034;
+        public static final int title_activity_ordenes_aprehension=0x7f070030;
+        public static final int title_activity_principal=0x7f07002a;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
-        public static final int wallet_buy_button_place_holder=0x7f070025;
+        public static final int wallet_buy_button_place_holder=0x7f070022;
     }
     public static final class style {
         /** 
@@ -937,38 +930,6 @@ containing a value of this type.
           @attr name com.demomapas:adUnitId
         */
         public static final int AdsAttrs_adUnitId = 2;
-        /**  Attributes that can be specified to define a custom theme 
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CustomWalletTheme_windowTransitionStyle com.demomapas:windowTransitionStyle}</code></td><td> Defines the set of transition to be used between activities </td></tr>
-           </table>
-           @see #CustomWalletTheme_windowTransitionStyle
-         */
-        public static final int[] CustomWalletTheme = {
-            0x7f010025
-        };
-        /**
-          <p>
-          @attr description
-           Defines the set of transition to be used between activities 
-
-
-          <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>slide</code></td><td>1</td><td></td></tr>
-<tr><td><code>none</code></td><td>2</td><td></td></tr>
-</table>
-          <p>This is a private symbol.
-          @attr name com.demomapas:windowTransitionStyle
-        */
-        public static final int CustomWalletTheme_windowTransitionStyle = 0;
         /**  Attributes for LoadingImageView 
            <p>Includes the following attributes:</p>
            <table>

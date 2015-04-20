@@ -77,78 +77,85 @@ public class ListaOpciones extends Activity implements android.view.View.OnClick
 		//inicializamos los layouts
 		principal =  (RelativeLayout) findViewById(R.id.RelativeListaOpciones);
 		lista =  (LinearLayout) findViewById(R.id.ListaElementos);
+		principal.setBackgroundColor(Color.BLACK);
+		lista.setBackgroundColor(Color.BLACK);
 	
 		LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		
 	    //llp.setMargins(0, 30, 0, 0);
 		
 		
-		
-		Button MandamientosJudiaciales = new Button(getApplicationContext());
-		MandamientosJudiaciales.setText("Mandamientos Judiciales");
-		MandamientosJudiaciales.setTextSize(25);
-		MandamientosJudiaciales.setGravity(Gravity.CENTER);
+		Button MandamientosJudiaciales = (Button) findViewById(R.id.Mandamientos);
+		//Button MandamientosJudiaciales = new Button(getApplicationContext());
+//		MandamientosJudiaciales.setText("Mandamientos Judiciales");
+		MandamientosJudiaciales.setTextSize(20);
+		MandamientosJudiaciales.setGravity(Gravity.LEFT);
+		MandamientosJudiaciales.setGravity(Gravity.CENTER_VERTICAL);
 		MandamientosJudiaciales.setOnClickListener(this);
 		MandamientosJudiaciales.setTextColor(Color.BLACK);
-		MandamientosJudiaciales.setBackgroundColor(Color.WHITE);
-		MandamientosJudiaciales.setId(Constants.MandamientosJudiciales);
-	
+//		MandamientosJudiaciales.setBackgroundColor(Color.WHITE);
+//		MandamientosJudiaciales.setId(Constants.MandamientosJudiciales);
+//		MandamientosJudiaciales.setPadding(0, 5, 0, 5);
+//	
 		
-		Button Documentos = new Button(getApplicationContext());
-		Documentos.setLayoutParams(llp);
-		Documentos.setText("Documentos");
-		Documentos.setTextSize(25);
+		Button Documentos = (Button) findViewById(R.id.Documentos);
+//		Documentos.setLayoutParams(llp);
+//		Documentos.setText("Documentos");
+		Documentos.setTextSize(20);
 		Documentos.setGravity(Gravity.CENTER);
+		Documentos.setGravity(Gravity.CENTER_VERTICAL);
 		Documentos.setOnClickListener(this);
 		Documentos.setTextColor(Color.BLACK);
-		Documentos.setId(Constants.Documentos);
-		Documentos.setBackgroundColor(Color.WHITE);
+//		Documentos.setId(Constants.Documentos);
+//		Documentos.setBackgroundColor(Color.WHITE);
 		
 		
-		Button Emergencias = new Button(getApplicationContext());
-		Emergencias.setText("Emergencias");
-		Emergencias.setLayoutParams(llp);
-		Emergencias.setTextSize(25);
+		Button Emergencias = (Button) findViewById(R.id.Emergencias);
+//		Emergencias.setText("Emergencias");
+//		Emergencias.setLayoutParams(llp);
+		Emergencias.setTextSize(20);
 		Emergencias.setGravity(Gravity.CENTER);
+		Emergencias.setGravity(Gravity.CENTER_VERTICAL);
 		Emergencias.setOnClickListener(this);
 		Emergencias.setTextColor(Color.BLACK);
-		Emergencias.setId(Constants.Emergencias);
-		Emergencias.setBackgroundColor(Color.WHITE);
+//		Emergencias.setId(Constants.Emergencias);
+//		Emergencias.setBackgroundColor(Color.WHITE);
 		
 		
-		Button TransmitirBitacora = new Button(getApplicationContext());
-		TransmitirBitacora.setText(" Transmitir Bitácoras");
-		TransmitirBitacora.setLayoutParams(llp);
-		TransmitirBitacora.setTextSize(25);
+		Button TransmitirBitacora = (Button) findViewById(R.id.Transmitir);
+//		TransmitirBitacora.setText(" Transmitir Bitácoras");
+//		TransmitirBitacora.setLayoutParams(llp);
+		TransmitirBitacora.setTextSize(20);
 		TransmitirBitacora.setGravity(Gravity.CENTER);
+		TransmitirBitacora.setGravity(Gravity.CENTER_VERTICAL);
 		TransmitirBitacora.setOnClickListener(this);
 		TransmitirBitacora.setTextColor(Color.BLACK);
-		TransmitirBitacora.setId(Constants.TransmitirBitacora);
-		TransmitirBitacora.setBackgroundColor(Color.WHITE);
+//		TransmitirBitacora.setId(Constants.TransmitirBitacora);
+//		TransmitirBitacora.setBackgroundColor(Color.WHITE);
 		
 		Button comodin = new Button(getApplicationContext());
 		comodin.setText(" ");
-		comodin.setTextSize(25);
+		comodin.setTextSize(20);
 		comodin.setBackgroundColor(Color.WHITE);
 		Button comodin2 = new Button(getApplicationContext());
 		comodin2.setText(" ");
-		comodin2.setTextSize(25);
+		comodin2.setTextSize(20);
 		comodin2.setBackgroundColor(Color.WHITE);
 		Button comodin3 = new Button(getApplicationContext());
 		comodin3.setText(" ");
-		comodin3.setTextSize(25);
+		comodin3.setTextSize(20);
 		comodin3.setBackgroundColor(Color.WHITE);
 		Button comodin4 = new Button(getApplicationContext());
 		comodin4.setText(" ");
-		comodin4.setTextSize(25);
+		comodin4.setTextSize(20);
 		comodin4.setBackgroundColor(Color.WHITE);
 		Button comodin5 = new Button(getApplicationContext());
 		comodin5.setText(" ");
-		comodin5.setTextSize(25);
+		comodin5.setTextSize(20);
 		comodin5.setBackgroundColor(Color.WHITE);
 		Button comodin6 = new Button(getApplicationContext());
 		comodin6.setText(" ");
-		comodin6.setTextSize(25);
+		comodin6.setTextSize(20);
 		comodin6.setBackgroundColor(Color.WHITE);
 		Button comodin7 = new Button(getApplicationContext());
 		comodin7.setText(" ");
@@ -166,20 +173,21 @@ public class ListaOpciones extends Activity implements android.view.View.OnClick
 		comodin10.setText(" ");
 		comodin10.setTextSize(25);
 		comodin10.setBackgroundColor(Color.WHITE);
-		lista.addView(MandamientosJudiaciales);
-		lista.addView(Documentos);
-		lista.addView(Emergencias);
-		lista.addView(TransmitirBitacora);
-		lista.addView(comodin);
-		lista.addView(comodin2);
-		lista.addView(comodin3);
-		lista.addView(comodin4);
-		lista.addView(comodin5);
-		lista.addView(comodin6);
-		lista.addView(comodin7);
-		lista.addView(comodin8);
-		lista.addView(comodin9);
-		lista.addView(comodin10);
+//		
+//		lista.addView(MandamientosJudiaciales);
+//		lista.addView(Documentos);
+//		lista.addView(Emergencias);
+//		lista.addView(TransmitirBitacora);
+//		lista.addView(comodin);
+//		lista.addView(comodin2);
+//		lista.addView(comodin3);
+//		lista.addView(comodin4);
+//		lista.addView(comodin5);
+//		lista.addView(comodin6);
+//		lista.addView(comodin7);
+//		lista.addView(comodin8);
+//		lista.addView(comodin9);
+//		lista.addView(comodin10);
 		
 		
 	}
@@ -207,20 +215,20 @@ public class ListaOpciones extends Activity implements android.view.View.OnClick
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case Constants.MandamientosJudiciales:
+		case R.id.Mandamientos:
 			Log.i("Mandamientos Judiciales", "Mandamientos Judiaciales");
 			//new ObtenerInformacion(getApplicationContext()).execute();
 			startActivity(new Intent(ListaOpciones.this,MainActivityPager.class));
 			break;
-		case Constants.Documentos:
+		case R.id.Documentos:
 			Log.i("Documentos", "Documentos");
 			Toast.makeText(getApplicationContext(), "Documentos", Toast.LENGTH_LONG).show();
 			break;
-		case Constants.Emergencias:
+		case R.id.Emergencias:
 			Log.i("Emergencia", "Emergencia");
 			startActivity(new Intent(ListaOpciones.this, NumerosEmergencia.class));
 			break;
-		case Constants.TransmitirBitacora:
+		case R.id.Transmitir:
 			Log.i("Transmitir Bitacora", "Transmitir Bitacora");
 			Toast.makeText(getApplicationContext(), "Transmitir Bitacora", Toast.LENGTH_LONG).show();
 			break;

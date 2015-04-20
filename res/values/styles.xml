@@ -132,6 +132,7 @@
      <item name="android:icon">@android:color/transparent</item>
        <item name="android:textColor">@android:color/transparent</item>
         <item name="android:background">@drawable/logopgj2</item>
+        <item name = "android:height">80dp</item>
     </style>
 
 </resources>

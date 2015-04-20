@@ -26,12 +26,15 @@ import org.w3c.dom.ls.LSInput;
 
 
 
+
+
 import com.demomapas.LevantarInformacion;
 import com.demomapas.LevantarInformacion2;
 import com.demomapas.ObjetoMandamiento;
 import com.demomapas.Pagina1;
 import com.demomapas.R;
 import com.demomapas.adapters.Adp_Base_ListaReferencia;
+import com.google.gson.Gson;
 import com.virtualef.pgj.service.commandmentService.CommandmentService;
 import com.virtualef.pgj.service.commandmentService.model.AgentDto;
 import com.virtualef.pgj.service.commandmentService.model.CollectionResponseCommandmentDto;
@@ -294,9 +297,33 @@ public class Frag_Listados extends Fragment {
 //					objeto.Mandamientos = (ArrayList<CommandmentDto>) MainActivityPager.Mandamientos.getItems();
 //					b.putParcelable("mandamiento", objeto);
 					Intent i = new Intent(getActivity(), LevantarInformacion2.class);
+					String enviar = "";
+					if(Tipo == com.demomapas.Constants.OrdenesAprehension){
+						enviar = new Gson().toJson(MainActivityPager.aprehension.get(arg2)); 
+			  			System.out.println();
+			  			
+			  		}else if(Tipo == com.demomapas.Constants.OrdenesReaprehension){
+			  			enviar = new Gson().toJson(MainActivityPager.reaprehension.get(arg2));
+			  			System.out.println();
+			  		}else if(Tipo == com.demomapas.Constants.OrdenesPresentacion){
+			  			enviar = new Gson().toJson(MainActivityPager.presentacion.get(arg2));
+			  			System.out.println();
+			  		}else if(Tipo == com.demomapas.Constants.OrdenesComparecencia){
+			  			enviar = new Gson().toJson(MainActivityPager.comparecencia.get(arg2));
+			  			System.out.println();
+			  		}else if(Tipo == com.demomapas.Constants.OficiosColaboracion){
+			  			enviar = new Gson().toJson(MainActivityPager.colaboracion.get(arg2));
+			  			System.out.println();
+			  		}else if(Tipo == com.demomapas.Constants.Traslados){
+			  			enviar = new Gson().toJson(MainActivityPager.traslados.get(arg2));
+			  			System.out.println();
+			  		}
+					
+					
 					i.putExtra("Tipo", Tipo);
 					i.putExtra("Position1", arg2);
 					i.putExtra("Position2", arg3);
+					i.putExtra("mandamientoscadena", enviar);
 					startActivity(i);
 					//startActivity(new Intent(getActivity(), LevantarInformacion.class));
 				

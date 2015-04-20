@@ -4,15 +4,95 @@
     android:layout_height="match_parent"
 
     tools:context="com.demomapas.ListaOpciones" 
-          android:background="@color/black"
+          android:background="@color/white"
     android:id="@+id/RelativeListaOpciones">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:id="@+id/ListaElementos"
         android:layout_height="match_parent"
-        android:background="@color/gray"
+        android:background="@color/white"
         android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/Mandamientos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customboton3"
+            android:text="  * Mandamientos Judiciales" />
+
+        <Button
+            android:id="@+id/Documentos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customboton"
+            android:text="  * Documentos" />
+
+        <Button
+            android:id="@+id/Emergencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customboton"
+            android:text="  * Emergencias" />
+
+        <Button
+            android:id="@+id/Transmitir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customboton"
+            android:text="  * Transmitir Bitácoras" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customboton2"
+         
+            android:text="" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+     
+            android:text="" />
+          <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+     
+            android:text="" />
+            <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+     
+            android:text="" />
+              <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+     
+            android:text="" />
+                <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+     
+            android:text="" />
+                  <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+     
+            android:text="" />
+
     </LinearLayout>
 
 </RelativeLayout>

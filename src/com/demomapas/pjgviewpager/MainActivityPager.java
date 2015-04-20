@@ -18,6 +18,7 @@ import com.demomapas.R.layout;
 import com.demomapas.deviceinfoendpoint.Deviceinfoendpoint;
 import com.demomapas.deviceinfoendpoint.model.DeviceInfo;
 import com.demomapas.endpoints.EndPointsInicializacion;
+import com.google.android.gms.maps.MapsInitializer;
 import com.virtualef.pgj.service.agentService.model.AgentDto;
 import com.virtualef.pgj.service.commandmentService.CommandmentService;
 import com.virtualef.pgj.service.commandmentService.model.CollectionResponseCommandmentDto;
@@ -63,6 +64,7 @@ public class MainActivityPager extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		MapsInitializer.initialize(getApplicationContext());
 		
 	/////9	if(savedInstanceState!=null){
 	//Log.i("bundle", savedInstanceState.getString("quieras"));
@@ -174,7 +176,7 @@ public class MainActivityPager extends FragmentActivity {
 	//	}
 	System.out.println();
 	super.onCreate(savedInstanceState);
-	Log.i("estoy en el oncreate", "estoy en el oncreate");
+
 		
 	}
 		
@@ -184,10 +186,10 @@ public class MainActivityPager extends FragmentActivity {
 		// TODO Auto-generated method stub
 		super.onSaveInstanceState(outState);
 		//outState.putString("quieras", "quieras");
-		Log.i("ciclo de vida", "onsavedinstance");
-		ObjetoMandamiento objeto = new ObjetoMandamiento();
-		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
-		outState.putParcelable("mandamiento", objeto);
+//		Log.i("ciclo de vida", "onsavedinstance");
+//		ObjetoMandamiento objeto = new ObjetoMandamiento();
+//		objeto.Mandamientos = (ArrayList<CommandmentDto>) Mandamientos.getItems();
+//		outState.putParcelable("mandamiento", objeto);
 		
 		
 	}

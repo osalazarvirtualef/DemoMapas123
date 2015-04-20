@@ -37,7 +37,7 @@ public class MyMapFragment2 extends SupportMapFragment {
         ArrayList<Parcelable> list = getArguments().getParcelableArrayList("markers");
         if(list==null)Log.i("viene nulo", "viene nulo");
         mMarkers = new ArrayList<MarkerOptions>(list.size());
-        Log.i("mmarkers tienen un tamaño de:", list.size()+"");
+        Log.i("mmarkers tienen un tama��o de:", list.size()+"");
         for (Parcelable parcelable : list) {
             mMarkers.add((MarkerOptions) parcelable);
             Log.i("se agrefgo el mmarker ","dfvdsdsv");
@@ -53,7 +53,7 @@ public class MyMapFragment2 extends SupportMapFragment {
         //add the markers
         if (mMap != null) {
             for (final MarkerOptions marker : mMarkers) {
-            	   //mMap.addMarker(marker);
+            	 //  mMap.addMarker(marker);
            
             }
         }
