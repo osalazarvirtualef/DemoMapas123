@@ -404,58 +404,58 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f010014;
     }
     public static final class color {
-        public static final int apptheme_color=0x7f080028;
-        public static final int aqua=0x7f080020;
-        public static final int black=0x7f080027;
-        public static final int blue=0x7f080024;
-        public static final int common_action_bar_splitter=0x7f080009;
+        public static final int apptheme_color=0x7f090028;
+        public static final int aqua=0x7f090020;
+        public static final int black=0x7f090027;
+        public static final int blue=0x7f090024;
+        public static final int common_action_bar_splitter=0x7f090009;
         /**  Sign-in Button Colors 
          */
-        public static final int common_signin_btn_dark_text_default=0x7f080000;
-        public static final int common_signin_btn_dark_text_disabled=0x7f080002;
-        public static final int common_signin_btn_dark_text_focused=0x7f080003;
-        public static final int common_signin_btn_dark_text_pressed=0x7f080001;
-        public static final int common_signin_btn_default_background=0x7f080008;
-        public static final int common_signin_btn_light_text_default=0x7f080004;
-        public static final int common_signin_btn_light_text_disabled=0x7f080006;
-        public static final int common_signin_btn_light_text_focused=0x7f080007;
-        public static final int common_signin_btn_light_text_pressed=0x7f080005;
-        public static final int common_signin_btn_text_dark=0x7f080029;
-        public static final int common_signin_btn_text_light=0x7f08002a;
-        public static final int darkBlue=0x7f080026;
-        public static final int fuchsia=0x7f080019;
-        public static final int gray=0x7f08001c;
-        public static final int green=0x7f080023;
-        public static final int lime=0x7f080021;
-        public static final int maroon=0x7f08001f;
-        public static final int navy=0x7f080025;
-        public static final int olive=0x7f08001d;
-        public static final int purple=0x7f08001e;
-        public static final int red=0x7f08001a;
-        public static final int silver=0x7f08001b;
-        public static final int teal=0x7f080022;
-        public static final int wallet_bright_foreground_disabled_holo_light=0x7f08000f;
+        public static final int common_signin_btn_dark_text_default=0x7f090000;
+        public static final int common_signin_btn_dark_text_disabled=0x7f090002;
+        public static final int common_signin_btn_dark_text_focused=0x7f090003;
+        public static final int common_signin_btn_dark_text_pressed=0x7f090001;
+        public static final int common_signin_btn_default_background=0x7f090008;
+        public static final int common_signin_btn_light_text_default=0x7f090004;
+        public static final int common_signin_btn_light_text_disabled=0x7f090006;
+        public static final int common_signin_btn_light_text_focused=0x7f090007;
+        public static final int common_signin_btn_light_text_pressed=0x7f090005;
+        public static final int common_signin_btn_text_dark=0x7f090029;
+        public static final int common_signin_btn_text_light=0x7f09002a;
+        public static final int darkBlue=0x7f090026;
+        public static final int fuchsia=0x7f090019;
+        public static final int gray=0x7f09001c;
+        public static final int green=0x7f090023;
+        public static final int lime=0x7f090021;
+        public static final int maroon=0x7f09001f;
+        public static final int navy=0x7f090025;
+        public static final int olive=0x7f09001d;
+        public static final int purple=0x7f09001e;
+        public static final int red=0x7f09001a;
+        public static final int silver=0x7f09001b;
+        public static final int teal=0x7f090022;
+        public static final int wallet_bright_foreground_disabled_holo_light=0x7f09000f;
         /** 
          Wallet colors to support consistent Wallet fragment holo dark UI in client application
          regardless of the theme and device type
     
          */
-        public static final int wallet_bright_foreground_holo_dark=0x7f08000a;
-        public static final int wallet_bright_foreground_holo_light=0x7f080010;
-        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f08000c;
-        public static final int wallet_dim_foreground_holo_dark=0x7f08000b;
-        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f08000e;
-        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f08000d;
-        public static final int wallet_highlighted_text_holo_dark=0x7f080014;
-        public static final int wallet_highlighted_text_holo_light=0x7f080013;
-        public static final int wallet_hint_foreground_holo_dark=0x7f080012;
-        public static final int wallet_hint_foreground_holo_light=0x7f080011;
-        public static final int wallet_holo_blue_light=0x7f080015;
-        public static final int wallet_link_text_light=0x7f080016;
-        public static final int wallet_primary_text_holo_light=0x7f08002b;
-        public static final int wallet_secondary_text_holo_dark=0x7f08002c;
-        public static final int white=0x7f080017;
-        public static final int yellow=0x7f080018;
+        public static final int wallet_bright_foreground_holo_dark=0x7f09000a;
+        public static final int wallet_bright_foreground_holo_light=0x7f090010;
+        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f09000c;
+        public static final int wallet_dim_foreground_holo_dark=0x7f09000b;
+        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f09000e;
+        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f09000d;
+        public static final int wallet_highlighted_text_holo_dark=0x7f090014;
+        public static final int wallet_highlighted_text_holo_light=0x7f090013;
+        public static final int wallet_hint_foreground_holo_dark=0x7f090012;
+        public static final int wallet_hint_foreground_holo_light=0x7f090011;
+        public static final int wallet_holo_blue_light=0x7f090015;
+        public static final int wallet_link_text_light=0x7f090016;
+        public static final int wallet_primary_text_holo_light=0x7f09002b;
+        public static final int wallet_secondary_text_holo_dark=0x7f09002c;
+        public static final int white=0x7f090017;
+        public static final int yellow=0x7f090018;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -465,8 +465,8 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f0a0000;
-        public static final int activity_vertical_margin=0x7f0a0001;
+        public static final int activity_horizontal_margin=0x7f0b0000;
+        public static final int activity_vertical_margin=0x7f0b0001;
     }
     public static final class drawable {
         public static final int apptheme_edit_text_holo_light=0x7f020000;
@@ -530,6 +530,7 @@ containing a value of this type.
         public static final int telefono=0x7f02003a;
     }
     public static final class id {
+<<<<<<< Updated upstream
         public static final int ButtonCall=0x7f0c0068;
         public static final int Documentos=0x7f0c001c;
         public static final int Emergencias=0x7f0c001d;
@@ -641,9 +642,121 @@ containing a value of this type.
         public static final int vpag_referencia=0x7f0c0055;
         public static final int vpagt_tabStrip=0x7f0c0056;
         public static final int wrap_content=0x7f0c000f;
+=======
+        public static final int ButtonCall=0x7f080067;
+        public static final int Documentos=0x7f08001b;
+        public static final int Emergencias=0x7f08001c;
+        public static final int EnviarInfo=0x7f080045;
+        public static final int LLy_lyt_fragment_baselistados=0x7f08006a;
+        public static final int LinearMandamientos=0x7f080029;
+        public static final int ListaElementos=0x7f080019;
+        public static final int ListaOrdenesAprehension=0x7f08002c;
+        public static final int Mandamientos=0x7f08001a;
+        public static final int RelativeListaOpciones=0x7f080018;
+        public static final int TextView02=0x7f08003f;
+        public static final int TextView04=0x7f08003d;
+        public static final int TextView06=0x7f08003b;
+        public static final int TextView08=0x7f080039;
+        public static final int TextView10=0x7f080037;
+        public static final int TextView12=0x7f080035;
+        public static final int TextView14=0x7f080033;
+        public static final int TextView16=0x7f080031;
+        public static final int TextView18=0x7f08002f;
+        public static final int TextView20=0x7f08002d;
+        public static final int TomarAudio=0x7f080044;
+        public static final int TomarEvidencia=0x7f08005f;
+        public static final int TomarEvidencia2=0x7f080043;
+        public static final int Transmitir=0x7f08001d;
+        public static final int action_settings=0x7f08006d;
+        public static final int adjust_height=0x7f080002;
+        public static final int adjust_width=0x7f080001;
+        public static final int aliasText=0x7f08003a;
+        public static final int apm=0x7f08005a;
+        public static final int app=0x7f080059;
+        public static final int book_now=0x7f080012;
+        public static final int button10=0x7f080023;
+        public static final int button11=0x7f080024;
+        public static final int button5=0x7f08001e;
+        public static final int button6=0x7f08001f;
+        public static final int button7=0x7f080020;
+        public static final int button8=0x7f080021;
+        public static final int button9=0x7f080022;
+        public static final int buyButton=0x7f08000c;
+        public static final int buy_now=0x7f080011;
+        public static final int buy_with_google=0x7f080010;
+        public static final int cargo=0x7f08005c;
+        public static final int classic=0x7f080014;
+        public static final int container=0x7f080017;
+        public static final int contenedorInfo=0x7f080057;
+        public static final int contenedorMain=0x7f080025;
+        public static final int content_frame=0x7f080046;
+        public static final int delito=0x7f08005d;
+        public static final int delitoText=0x7f080036;
+        public static final int domicilioText=0x7f080040;
+        public static final int donate_with_google=0x7f080013;
+        public static final int drw_mainMenu=0x7f080027;
+        public static final int edad=0x7f08005b;
+        public static final int edadText=0x7f08003c;
+        public static final int editTextContrasena=0x7f080051;
+        public static final int editTextUsuario=0x7f080050;
+        public static final int enviar=0x7f080061;
+        public static final int expedienteText=0x7f080030;
+        public static final int fecha=0x7f080060;
+        public static final int foto=0x7f08005e;
+        public static final int fotoAudio=0x7f080042;
+        public static final int fotoEvidencia=0x7f080041;
+        public static final int frag_ubicacion=0x7f080026;
+        public static final int frm_lyt_mainMenu=0x7f080028;
+        public static final int grayscale=0x7f080015;
+        public static final int header=0x7f08006c;
+        public static final int holo_dark=0x7f080007;
+        public static final int holo_light=0x7f080008;
+        public static final int hybrid=0x7f080006;
+        public static final int imageView1=0x7f080048;
+        public static final int imagepdi=0x7f08004f;
+        public static final int imgv_itemRow=0x7f080062;
+        public static final int juezText=0x7f080034;
+        public static final int juzgadoText=0x7f08002e;
+        public static final int listTelefonos=0x7f080053;
+        public static final int listTelefonosActivity=0x7f08002a;
+        public static final int lstv_listaMenu=0x7f080056;
+        public static final int lstv_listadosItems=0x7f08006b;
+        public static final int match_parent=0x7f08000e;
+        public static final int monochrome=0x7f080016;
+        public static final int msgView=0x7f080049;
+        public static final int nombre=0x7f080058;
+        public static final int none=0x7f080000;
+        public static final int normal=0x7f080003;
+        public static final int oficioText=0x7f080032;
+        public static final int pager_title_strip=0x7f080069;
+        public static final int password=0x7f08004c;
+        public static final int production=0x7f080009;
+        public static final int regButton=0x7f08004e;
+        public static final int regButton2=0x7f080052;
+        public static final int requeridoText=0x7f080038;
+        public static final int sandbox=0x7f08000a;
+        public static final int satellite=0x7f080004;
+        public static final int scrollView1=0x7f08002b;
+        public static final int selectionDetails=0x7f08000d;
+        public static final int sexoText=0x7f08003e;
+        public static final int strict_sandbox=0x7f08000b;
+        public static final int terrain=0x7f080005;
+        public static final int textView1=0x7f080047;
+        public static final int textView2=0x7f08004a;
+        public static final int textView3=0x7f08004d;
+        public static final int textoPhone=0x7f080066;
+        public static final int txv_Expediente=0x7f080064;
+        public static final int txv_Juzgado=0x7f080063;
+        public static final int txv_Requerido=0x7f080065;
+        public static final int usuario=0x7f08004b;
+        public static final int view_pager=0x7f080068;
+        public static final int vpag_referencia=0x7f080054;
+        public static final int vpagt_tabStrip=0x7f080055;
+        public static final int wrap_content=0x7f08000f;
+>>>>>>> Stashed changes
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f090000;
+        public static final int google_play_services_version=0x7f0a0000;
     }
     public static final class layout {
         public static final int activity_base_pager=0x7f030000;
@@ -672,15 +785,15 @@ containing a value of this type.
         public static final int window_title=0x7f030017;
     }
     public static final class menu {
-        public static final int base_pager=0x7f0b0000;
-        public static final int lfve=0x7f0b0001;
-        public static final int lista_opciones=0x7f0b0002;
-        public static final int main_activity_pager=0x7f0b0003;
-        public static final int mandamientos_judiciales=0x7f0b0004;
-        public static final int mandamientos_judiciales_list=0x7f0b0005;
-        public static final int numeros_emergencia=0x7f0b0006;
-        public static final int ordenes_aprehension=0x7f0b0007;
-        public static final int principal=0x7f0b0008;
+        public static final int base_pager=0x7f0c0000;
+        public static final int lfve=0x7f0c0001;
+        public static final int lista_opciones=0x7f0c0002;
+        public static final int main_activity_pager=0x7f0c0003;
+        public static final int mandamientos_judiciales=0x7f0c0004;
+        public static final int mandamientos_judiciales_list=0x7f0c0005;
+        public static final int numeros_emergencia=0x7f0c0006;
+        public static final int ordenes_aprehension=0x7f0c0007;
+        public static final int principal=0x7f0c0008;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f050000;
