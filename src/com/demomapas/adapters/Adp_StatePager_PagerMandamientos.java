@@ -10,7 +10,7 @@ import com.demomapas.MyMapFragment;
 import com.demomapas.MyMapFragment2;
 import com.demomapas.ObjetoMandamiento;
 import com.demomapas.R;
-import com.demomapas.mapa;
+
 import com.demomapas.pjgviewpager.Frag_Listados;
 import com.demomapas.pjgviewpager.MainActivityPager;
 import com.google.android.gms.maps.GoogleMap;

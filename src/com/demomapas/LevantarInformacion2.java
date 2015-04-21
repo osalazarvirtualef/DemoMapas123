@@ -105,7 +105,7 @@ public class LevantarInformacion2 extends Activity{
 	int tipo;
 	 int position1;
 	 long position2;
-	 commandmentdto2 mandamientorecibido;
+	 commandment2 mandamientorecibido;
 	LinearLayout ListaOrdenesAprehension;
 	ImageView mImageView;
 	static Bitmap imagenphoto;
@@ -211,7 +211,7 @@ public class LevantarInformacion2 extends Activity{
 			  position1 = getIntent().getIntExtra("Position1",0);
 			  position2 = getIntent().getIntExtra("Position2",0);
 			  mandamientoscadena = getIntent().getStringExtra("mandamientoscadena");
-			   mandamientorecibido = new Gson().fromJson(mandamientoscadena, commandmentdto2.class);
+			   mandamientorecibido = new Gson().fromJson(mandamientoscadena, commandment2.class);
 
 			  System.out.println();
 			  
