@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+import com.demomapas.LevantarInformacion.InicializaCampos;
 import com.demomapas.Pagina1.EnviarInformacion;
 import com.demomapas.endpoints.EndPointsInicializacion;
 import com.demomapas.pjgviewpager.MainActivityPager;
@@ -69,6 +71,8 @@ public class LevantarInformacion2 extends Activity{
 	int tipo;
 	 int position1;
 	 long position2;
+	 public long id;
+	 CommandmentDto mandamiento;
 	 commandment2 mandamientorecibido;
 	 AgentDto2 agenterecibido;
 	 PersonDto2 AgentePerson;
@@ -128,6 +132,7 @@ public class LevantarInformacion2 extends Activity{
 		outState.putInt("Position1", position1);
 		outState.putLong("Position2", position2);
 		//outState.putParcelable("mandamiento", info);
+		outState.putLong("id", mandamiento.getId());
 //		outState.putLong("id", );
 		super.onSaveInstanceState(outState);
 	}
@@ -159,6 +164,11 @@ public class LevantarInformacion2 extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pagina2);
+		
+		
+		id = getIntent().getLongExtra("id", 0);
+		
+		
 //		try {
 //			info = savedInstanceState.getParcelable("mandamiento");
 //			Log.i("recupere info en el try", "recupere info en el try");
@@ -174,46 +184,46 @@ public class LevantarInformacion2 extends Activity{
 //			position2 = savedInstanceState.getLong("Position2");
 //			
 //		}
-		try {
-			 tipo = getIntent().getIntExtra("Tipo", 0);
-			  position1 = getIntent().getIntExtra("Position1",0);
-			  position2 = getIntent().getIntExtra("Position2",0);
-			  mandamientoscadena = getIntent().getStringExtra("mandamientoscadena");
-			   mandamientorecibido = new Gson().fromJson(mandamientoscadena, commandment2.class);
-			 agenterecibido = new Gson().fromJson(getIntent().getStringExtra("agent"), AgentDto2.class);
-			   AgentePerson = new Gson().fromJson(getIntent().getStringExtra("agentperson"), PersonDto2.class);
-			   requeridorecibido = new Gson().fromJson(getIntent().getStringExtra("required"), RequiredDto2.class);
-			   requeridoPerson = new Gson().fromJson(getIntent().getStringExtra("requiredperson"), PersonDto2.class);
-			   String objetopina = getIntent().getStringExtra("pruebapina");
-			   CommandmentDto mand = new Gson().fromJson(objetopina, CommandmentDto.class);
-			   
-			   
-			   
-			   Key2 wer = new Gson().fromJson(getIntent().getStringExtra("key"), Key2.class);
-			   info =  new CommandmentDto();
-			   info.setAddress(mandamientorecibido.getAddress());
-			   info.getAgent().setAlias(agenterecibido.getAlias());
-			   info.getAgent().setAliasP(agenterecibido.getAliasP());
-			   info.getAgent().setLatitude(agenterecibido.getLatitude());
-			   info.getAgent().setLongitude(agenterecibido.getLongitude());
-			   info.getAgent().getPerson().setAge(AgentePerson.getAge());
-			   info.getAgent().getPerson().setFirstName(AgentePerson.getFirstName());
-			   info.getAgent().getPerson().setLastName(AgentePerson.getLastName());
-			  // info.get
-			   
-			   
-			   
-//			   i.putExtra("mandamientoscadena", mandamiento);
-//				i.putExtra("agent", Agent);
-//				i.putExtra("agentperson", AgentPerson);
-//				i.putExtra("required", Required);
-//				i.putExtra("requiredperson", RequiredPerson);
-			  System.out.println();
-			  
-		} catch (Exception e) {
-			// TODO: handle exception
-			Log.i("error en el parse", e.getMessage());
-		}
+//		try {
+//			 tipo = getIntent().getIntExtra("Tipo", 0);
+//			  position1 = getIntent().getIntExtra("Position1",0);
+//			  position2 = getIntent().getIntExtra("Position2",0);
+//			  mandamientoscadena = getIntent().getStringExtra("mandamientoscadena");
+//			   mandamientorecibido = new Gson().fromJson(mandamientoscadena, commandment2.class);
+//			 agenterecibido = new Gson().fromJson(getIntent().getStringExtra("agent"), AgentDto2.class);
+//			   AgentePerson = new Gson().fromJson(getIntent().getStringExtra("agentperson"), PersonDto2.class);
+//			   requeridorecibido = new Gson().fromJson(getIntent().getStringExtra("required"), RequiredDto2.class);
+//			   requeridoPerson = new Gson().fromJson(getIntent().getStringExtra("requiredperson"), PersonDto2.class);
+//			   String objetopina = getIntent().getStringExtra("pruebapina");
+//			   CommandmentDto mand = new Gson().fromJson(objetopina, CommandmentDto.class);
+//			   
+//			   
+//			   
+//			   Key2 wer = new Gson().fromJson(getIntent().getStringExtra("key"), Key2.class);
+//			   info =  new CommandmentDto();
+//			   info.setAddress(mandamientorecibido.getAddress());
+//			   info.getAgent().setAlias(agenterecibido.getAlias());
+//			   info.getAgent().setAliasP(agenterecibido.getAliasP());
+//			   info.getAgent().setLatitude(agenterecibido.getLatitude());
+//			   info.getAgent().setLongitude(agenterecibido.getLongitude());
+//			   info.getAgent().getPerson().setAge(AgentePerson.getAge());
+//			   info.getAgent().getPerson().setFirstName(AgentePerson.getFirstName());
+//			   info.getAgent().getPerson().setLastName(AgentePerson.getLastName());
+//			  // info.get
+//			   
+//			   
+//			   
+////			   i.putExtra("mandamientoscadena", mandamiento);
+////				i.putExtra("agent", Agent);
+////				i.putExtra("agentperson", AgentPerson);
+////				i.putExtra("required", Required);
+////				i.putExtra("requiredperson", RequiredPerson);
+//			  System.out.println();
+//			  
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			Log.i("error en el parse", e.getMessage());
+//		}
 
 	  Log.i("el valor de tipo es", tipo+"");
 	  Log.i("el valor de position1 es", position1+"");
@@ -296,14 +306,14 @@ public class LevantarInformacion2 extends Activity{
 //			delito.setText(mandamientorecibido.getOrder());
 			//if((mandamientorecibido.getRequire().getPerson().getName()!=null && mandamientorecibido.getRequire().getPerson().getFirstName() != null && mandamientorecibido.getRequire().getPerson().getLastName() != null))
 			//requerido.setText(info.getRequire().getPerson().getName()+" "+info.getRequire().getPerson().getFirstName()+" "+info.getRequire().getPerson().getLastName());
-			if(info.getRequire().getAlias()!=null)
-			alias.setText(info.getRequire().getAlias());
-			if(info.getRequire().getPerson().getAge()!=null)
-			edad.setText(info.getRequire().getPerson().getAge()+"");
-			if(info.getRequire().getPerson().getSex()!=null)
-			sexo.setText(info.getRequire().getPerson().getSex());
-			if(info.getAddress()!=null)
-			domicilio.setText(info.getAddress());
+
+//			alias.setText(info.getRequire().getAlias());
+//			if(info.getRequir			if(info.getRequire().getAlias()!=null)e().getPerson().getAge()!=null)
+//			edad.setText(info.getRequire().getPerson().getAge()+"");
+//			if(info.getRequire().getPerson().getSex()!=null)
+//			sexo.setText(info.getRequire().getPerson().getSex());
+//			if(info.getAddress()!=null)
+//			domicilio.setText(info.getAddress());
 	//		}
 //			mImageView.setVisibility(View.GONE);
 //			ImagenAudio.setVisibility(View.GONE);
@@ -347,7 +357,7 @@ public class LevantarInformacion2 extends Activity{
 					// TODO Auto-generated method stub
 			        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);  
 			        //Set the dialog title to 'Loading...'.  
-			        progressDialog.setTitle("Enviando Informaci��n...");  
+			        progressDialog.setTitle("Enviando Información...");  
 			        //Set the dialog message to 'Loading application View, please wait...'.  
 			        progressDialog.setMessage("Espere...");  
 			        //This dialog can't be canceled by pressing the back key.  
@@ -374,6 +384,9 @@ public class LevantarInformacion2 extends Activity{
 			} else {
 				mAlbumStorageDirFactory = new BaseAlbumDirFactory();
 			}
+	  		
+	  		
+	  		new llenacampos().execute();
 		  
 	}
 
@@ -711,31 +724,31 @@ public class LevantarInformacion2 extends Activity{
 					blobkey = resposeGson2.setMultimedia(urlBlobStore, path, Constants.Imagen);
 					Log.i("blobkey", blobkey);
 					evidencias.add(blobkey);
-					info.setEvidence(evidencias);
+					mandamiento.setEvidence(evidencias);
 					}
 					if(pathAudio!=null && !
 							pathAudio.equalsIgnoreCase("")){
 						 blobkeyAudio =  resposeGson.setMultimedia(urlBlobStoreAudio, pathAudio,Constants.Audio);
 						 Log.i("blobkeyAudio", blobkeyAudio);
 							audios.add(blobkeyAudio);
-							info.setAudio(audios);
+							mandamiento.setAudio(audios);
 					
 					}
 			
-					info.setStatus(true);
-					com.virtualef.pgj.service.commandmentService.model.RequireDto requerido = info.getRequire();
-					com.virtualef.pgj.service.commandmentService.model.AgentDto agente = info.getAgent();
-					info.setAgent(null);
-					info.setRequire(null);
+					mandamiento.setStatus(true);
+					com.virtualef.pgj.service.commandmentService.model.RequireDto requerido = mandamiento.getRequire();
+					com.virtualef.pgj.service.commandmentService.model.AgentDto agente = mandamiento.getAgent();
+					mandamiento.setAgent(null);
+					mandamiento.setRequire(null);
 					
 				
 					EndPointsInicializacion endpoints = new EndPointsInicializacion();
 					//agentEndpoint = endpoints.InicializacionAgent();
 					CommandmentService MandamientoEndpoint = endpoints.InicializacionMandamiento();
 					try {
-						MandamientoEndpoint.updateCommandments(info).execute();
-						info.setAgent(agente);
-						info.setRequire(requerido);
+						MandamientoEndpoint.updateCommandments(mandamiento).execute();
+						mandamiento.setAgent(agente);
+						mandamiento.setRequire(requerido);
 						Log.i("Envio correcto", "Envio correcto");
 						enviado = true;
 					} catch (IOException e) {
@@ -764,6 +777,68 @@ public class LevantarInformacion2 extends Activity{
 			if(enviado)
 				Toast.makeText(getApplicationContext(), "Enviado Correctamente", Toast.LENGTH_LONG).show();
 			onBackPressed();
+			
+			
+			
+			super.onPostExecute(result);
+		}
+
+	}
+	
+	public class llenacampos extends AsyncTask<Void, Void, Void> {
+
+		
+		private  llenacampos() {
+	      
+	    }
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			 
+		        //Set the progress dialog to display a horizontal bar .  
+		
+			super.onPreExecute();
+		}
+		@Override
+		protected Void doInBackground(Void... params) {
+			EndPointsInicializacion endpoints = new EndPointsInicializacion();
+			CommandmentService MandamientoEndpoint = null;
+			MandamientoEndpoint = endpoints.InicializacionMandamiento();
+			try {
+				 mandamiento = MandamientoEndpoint.getCommandment(id, true).execute();
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+
+			return null;
+		}
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			
+			if(mandamiento.getCourt()!=null)
+		  		juzgado.setText(mandamiento.getCourt()); 
+		  		if(mandamiento.getRecord()!=null)
+				expediente.setText(mandamiento.getRecord());
+		  		if(mandamiento.getObservations()!=null)
+				oficio.setText(mandamiento.getObservations());
+				if(mandamiento.getJudge()!=null)
+				juez.setText(mandamiento.getJudge());
+				if(mandamiento.getOrder()!=null)
+				delito.setText(mandamiento.getOrder());
+				if((mandamiento.getRequire().getPerson().getName()!=null && mandamiento.getRequire().getPerson().getFirstName() != null && mandamiento.getRequire().getPerson().getLastName() != null))
+				requerido.setText(mandamiento.getRequire().getPerson().getName()+" "+mandamiento.getRequire().getPerson().getFirstName()+" "+mandamiento.getRequire().getPerson().getLastName());
+				if(mandamiento.getRequire().getAlias()!=null)
+				alias.setText(mandamiento.getRequire().getAlias());
+				if(mandamiento.getRequire().getPerson().getAge()!=null)
+				edad.setText(mandamiento.getRequire().getPerson().getAge()+"");
+				if(mandamiento.getRequire().getPerson().getSex()!=null)
+				sexo.setText(mandamiento.getRequire().getPerson().getSex());
+				if(mandamiento.getAddress()!=null)
+				domicilio.setText(mandamiento.getAddress());
 			
 			
 			

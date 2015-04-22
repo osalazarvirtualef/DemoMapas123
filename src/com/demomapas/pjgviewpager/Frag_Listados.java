@@ -366,7 +366,7 @@ public class Frag_Listados extends Fragment {
 			  			System.out.println();
 			  		}
 					
-					
+					i.putExtra("id", aux.getId());
 					i.putExtra("Tipo", Tipo);
 					i.putExtra("Position1", arg2);
 					i.putExtra("Position2", arg3);
