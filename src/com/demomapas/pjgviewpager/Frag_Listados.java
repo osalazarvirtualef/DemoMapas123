@@ -297,6 +297,7 @@ public class Frag_Listados extends Fragment {
 //					objeto.Mandamientos = (ArrayList<CommandmentDto>) MainActivityPager.Mandamientos.getItems();
 //					b.putParcelable("mandamiento", objeto);
 					Intent i = new Intent(getActivity(), LevantarInformacion2.class);
+					String objetoMAndamiento = "";
 					String mandamiento = "";
 					String Agent = "";
 					String AgentPerson = "";
@@ -375,6 +376,7 @@ public class Frag_Listados extends Fragment {
 					i.putExtra("required", Required);
 					i.putExtra("requiredperson", RequiredPerson);
 					i.putExtra("key", key);
+					i.putExtra("pruebapina", new Gson().toJson(aux));
 					
 					startActivity(i);
 					//startActivity(new Intent(getActivity(), LevantarInformacion.class));

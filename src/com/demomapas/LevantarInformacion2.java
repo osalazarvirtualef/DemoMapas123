@@ -184,6 +184,11 @@ public class LevantarInformacion2 extends Activity{
 			   AgentePerson = new Gson().fromJson(getIntent().getStringExtra("agentperson"), PersonDto2.class);
 			   requeridorecibido = new Gson().fromJson(getIntent().getStringExtra("required"), RequiredDto2.class);
 			   requeridoPerson = new Gson().fromJson(getIntent().getStringExtra("requiredperson"), PersonDto2.class);
+			   String objetopina = getIntent().getStringExtra("pruebapina");
+			   CommandmentDto mand = new Gson().fromJson(objetopina, CommandmentDto.class);
+			   
+			   
+			   
 			   Key2 wer = new Gson().fromJson(getIntent().getStringExtra("key"), Key2.class);
 			   info =  new CommandmentDto();
 			   info.setAddress(mandamientorecibido.getAddress());
