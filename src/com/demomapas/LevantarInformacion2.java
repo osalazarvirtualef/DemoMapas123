@@ -9,42 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.demomapas.Pagina1.EnviarInformacion;
 import com.demomapas.endpoints.EndPointsInicializacion;
 import com.demomapas.pjgviewpager.MainActivityPager;
@@ -106,6 +70,10 @@ public class LevantarInformacion2 extends Activity{
 	 int position1;
 	 long position2;
 	 commandment2 mandamientorecibido;
+	 AgentDto2 agenterecibido;
+	 PersonDto2 AgentePerson;
+	 RequiredDto2 requeridorecibido;
+	 PersonDto2 requeridoPerson;
 	LinearLayout ListaOrdenesAprehension;
 	ImageView mImageView;
 	static Bitmap imagenphoto;
@@ -212,7 +180,29 @@ public class LevantarInformacion2 extends Activity{
 			  position2 = getIntent().getIntExtra("Position2",0);
 			  mandamientoscadena = getIntent().getStringExtra("mandamientoscadena");
 			   mandamientorecibido = new Gson().fromJson(mandamientoscadena, commandment2.class);
-
+			 agenterecibido = new Gson().fromJson(getIntent().getStringExtra("agent"), AgentDto2.class);
+			   AgentePerson = new Gson().fromJson(getIntent().getStringExtra("agentperson"), PersonDto2.class);
+			   requeridorecibido = new Gson().fromJson(getIntent().getStringExtra("required"), RequiredDto2.class);
+			   requeridoPerson = new Gson().fromJson(getIntent().getStringExtra("requiredperson"), PersonDto2.class);
+			   Key2 wer = new Gson().fromJson(getIntent().getStringExtra("key"), Key2.class);
+			   info =  new CommandmentDto();
+			   info.setAddress(mandamientorecibido.getAddress());
+			   info.getAgent().setAlias(agenterecibido.getAlias());
+			   info.getAgent().setAliasP(agenterecibido.getAliasP());
+			   info.getAgent().setLatitude(agenterecibido.getLatitude());
+			   info.getAgent().setLongitude(agenterecibido.getLongitude());
+			   info.getAgent().getPerson().setAge(AgentePerson.getAge());
+			   info.getAgent().getPerson().setFirstName(AgentePerson.getFirstName());
+			   info.getAgent().getPerson().setLastName(AgentePerson.getLastName());
+			  // info.get
+			   
+			   
+			   
+//			   i.putExtra("mandamientoscadena", mandamiento);
+//				i.putExtra("agent", Agent);
+//				i.putExtra("agentperson", AgentPerson);
+//				i.putExtra("required", Required);
+//				i.putExtra("requiredperson", RequiredPerson);
 			  System.out.println();
 			  
 		} catch (Exception e) {
@@ -289,16 +279,16 @@ public class LevantarInformacion2 extends Activity{
 //	  			System.out.println();
 //	  		}
 			
-	  		if(  mandamientorecibido.getCourt()!=null)
-	  		juzgado.setText(mandamientorecibido.getCourt()); 
-	  		if(mandamientorecibido.getRecord()!=null)
-			expediente.setText(mandamientorecibido.getRecord());
-	  		if(mandamientorecibido.getObservations()!=null)
-			oficio.setText(mandamientorecibido.getObservations());
-			if(mandamientorecibido.getJudge()!=null)
-			juez.setText(mandamientorecibido.getJudge());
-			if(mandamientorecibido.getOrder()!=null)
-			delito.setText(mandamientorecibido.getOrder());
+//	  		if(  mandamientorecibido.getCourt()!=null)
+//	  		juzgado.setText(mandamientorecibido.getCourt()); 
+//	  		if(mandamientorecibido.getRecord()!=null)
+//			expediente.setText(mandamientorecibido.getRecord());
+//	  		if(mandamientorecibido.getObservations()!=null)
+//			oficio.setText(mandamientorecibido.getObservations());
+//			if(mandamientorecibido.getJudge()!=null)
+//			juez.setText(mandamientorecibido.getJudge());
+//			if(mandamientorecibido.getOrder()!=null)
+//			delito.setText(mandamientorecibido.getOrder());
 			//if((mandamientorecibido.getRequire().getPerson().getName()!=null && mandamientorecibido.getRequire().getPerson().getFirstName() != null && mandamientorecibido.getRequire().getPerson().getLastName() != null))
 			//requerido.setText(info.getRequire().getPerson().getName()+" "+info.getRequire().getPerson().getFirstName()+" "+info.getRequire().getPerson().getLastName());
 			if(info.getRequire().getAlias()!=null)
