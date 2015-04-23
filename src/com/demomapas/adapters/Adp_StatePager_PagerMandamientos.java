@@ -80,14 +80,16 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter{
         		String name = elementos.getRequire().getPerson().getFirstName();
         		String firstname = elementos.getRequire().getPerson().getFirstName();
         		String lastname = elementos.getRequire().getPerson().getFirstName();
-        		mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'").icon(BitmapDescriptorFactory.fromResource(R.drawable.prison)));
+        		//mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'").icon(BitmapDescriptorFactory.fromResource(R.drawable.prison)));
+        		mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'"));
         	}else{
         		LatLng z = new LatLng(elementos.getLatitude(), elementos.getLongitude());
     		String name = elementos.getRequire().getPerson().getFirstName();
     		String firstname = elementos.getRequire().getPerson().getFirstName();
     		String lastname = elementos.getRequire().getPerson().getFirstName();
         		
-        	mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'").icon(BitmapDescriptorFactory.fromResource(R.drawable.prison2)));
+        	//mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'").icon(BitmapDescriptorFactory.fromResource(R.drawable.prison2)));
+    		mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'"));
         	}
 	        }
 			MyMapFragment2 mapa = new MyMapFragment2().create(null, mMarkers);
@@ -95,6 +97,8 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter{
 //			SupportMapFragment me = new SupportMapFragment();
 //			me.getMap().addMarker(new MarkerOptions().position(new LatLng(19.400159, -99.021714)));
 			retorna = mapa;
+			
+			//retorna = new com.demomapas.mapa(mMarkers);
 			break;
 			
 		case 1:

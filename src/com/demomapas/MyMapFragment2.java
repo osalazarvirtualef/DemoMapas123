@@ -6,6 +6,9 @@ import java.util.List;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -48,14 +51,28 @@ public class MyMapFragment2 extends SupportMapFragment {
     public void onResume() {
         super.onResume();
         Log.i("onresume del mapa", "onresume del mapa");
-        final GoogleMap mMap = super.getMap();
+         GoogleMap mMap = super.getMap();
         Log.i("el mmap es", mMap.toString());
         //add the markers
         if (mMap != null) {
             for (final MarkerOptions marker : mMarkers) {
-            	 //  mMap.addMarker(marker);
+            	   mMap.addMarker(marker);
            
             }
         }
+    }
+    
+    
+   @Override
+public void onDestroyView() {
+	// TODO Auto-generated method stub
+	super.onDestroyView();
+	
+}
+    @Override
+    public void onDestroy() {
+    	// TODO Auto-generated method stub
+    	super.onDestroy();
+    	Log.i("ondestroy", "ondestroy");
     }
 }

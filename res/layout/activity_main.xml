@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" 
-    android:id="@+id/contenedorMain">
+    android:id="@+id/contenedorMain3">
 
     <fragment
-        android:id="@+id/frag_ubicacion"
+        android:id="@+id/frag_ubicacion3"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         
