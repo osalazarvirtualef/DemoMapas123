@@ -10,7 +10,6 @@ import com.demomapas.MyMapFragment;
 import com.demomapas.MyMapFragment2;
 import com.demomapas.ObjetoMandamiento;
 import com.demomapas.R;
-
 import com.demomapas.pjgviewpager.Frag_Listados;
 import com.demomapas.pjgviewpager.MainActivityPager;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,6 +23,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.virtualef.pgj.service.commandmentService.model.CommandmentDto;
 
 import android.R.array;
+import android.R.bool;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -57,6 +57,7 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter{
 		switch (position) {
 		case 0:
 			ArrayList<Marker> marcadores = new ArrayList<Marker>();
+			ArrayList<Boolean> markerstatus = new ArrayList<Boolean>();
 			GoogleMapOptions gmo = new GoogleMapOptions();
 
 		SupportMapFragment googleMap = SupportMapFragment.newInstance(gmo);
@@ -82,6 +83,7 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter{
         		String lastname = elementos.getRequire().getPerson().getFirstName();
         		//mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'").icon(BitmapDescriptorFactory.fromResource(R.drawable.prison)));
         		mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'"));
+        		markerstatus.add(true);
         	}else{
         		LatLng z = new LatLng(elementos.getLatitude(), elementos.getLongitude());
     		String name = elementos.getRequire().getPerson().getFirstName();
@@ -90,9 +92,10 @@ public class Adp_StatePager_PagerMandamientos extends FragmentStatePagerAdapter{
         		
         	//mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'").icon(BitmapDescriptorFactory.fromResource(R.drawable.prison2)));
     		mMarkers.add(new MarkerOptions().position(new LatLng(elementos.getLatitude(), elementos.getLongitude())).title(elementos.getRequire().getPerson().getName()+" "+elementos.getRequire().getPerson().getFirstName()+" "+elementos.getRequire().getPerson().getLastName()+"   '"+elementos.getCommandmentType()+"'"));
+    		markerstatus.add(false);
         	}
 	        }
-			MyMapFragment2 mapa = new MyMapFragment2().create(null, mMarkers);
+			MyMapFragment2 mapa = new MyMapFragment2().create(null, mMarkers,markerstatus);
 			//retorna = new MyMapFragment(MainActivityPager.Mandamientos);
 //			SupportMapFragment me = new SupportMapFragment();
 //			me.getMap().addMarker(new MarkerOptions().position(new LatLng(19.400159, -99.021714)));
