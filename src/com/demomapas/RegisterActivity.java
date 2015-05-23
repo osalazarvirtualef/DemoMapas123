@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.text.BreakIterator;
+import java.util.List;
 
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,6 +14,8 @@ import com.demomapas.messageEndpoint.MessageEndpoint;
 import com.demomapas.messageEndpoint.model.CollectionResponseMessageData;
 import com.demomapas.messageEndpoint.model.MessageData;
 import com.demomapas.pjgviewpager.MainActivityPager;
+import com.demomapas.servicios.Iniciar_Servicio_Localizacion;
+import com.demomapas.servicios.Servicio_Localizacion;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
@@ -22,6 +25,8 @@ import com.virtualef.pgj.service.agentService.AgentService.GetAgentByAlias;
 import com.virtualef.pgj.service.agentService.model.AgentDto;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -92,6 +97,9 @@ public class RegisterActivity extends Activity implements OnClickListener, Locat
 		double latitude = 0;
 		double longitude = 0;
 	 public Location location;
+	 private boolean canGetLocation;
+	 Intent intent_servicio_Loc;
+	 static Iniciar_Servicio_Localizacion iniciar_servicio_Loc;
 
   enum State {
     REGISTERED, REGISTERING, UNREGISTERED, UNREGISTERING
@@ -218,14 +226,21 @@ public class RegisterActivity extends Activity implements OnClickListener, Locat
     
     
     LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-	locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);    
+	//locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE); 
+    
+    if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+        Toast.makeText(this, "GPS is Enabled in your device", Toast.LENGTH_SHORT).show();
+    }else{
+        showGPSDisabledAlertToUser();
+    }
 	Criteria criteria = new Criteria();
 	String provider = null;
 	provider = locationManager.getBestProvider(criteria, false);
 	if(provider!=null && !provider.equals("")){
 		
 		// Get the location from the given provider 
-	    location = locationManager.getLastKnownLocation(provider);
+	    //location = locationManager.getLastKnownLocation(provider);
+		location = getLocation();
 		
 	                
 	    //locationManager.requestLocationUpdates(provider, 2000, 1, this);
@@ -252,6 +267,11 @@ if(latitude != 0 && longitude != 0){
 	Log.i("longitud", longitude+"\n");
     
 }
+
+if(iniciar_Servicios())
+Log.i("servicio de aplicativo de la PGJ", "trabajando");
+else 
+iniciar_ServiciosNow();
     
     
     
@@ -539,6 +559,129 @@ protected void onStop() {
 		// TODO Auto-generated method stub
 		
 	}
-  
+	  private void showGPSDisabledAlertToUser(){
+	      AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+	      alertDialogBuilder.setMessage("Necesita activar el GPS para poder utilizar correctamente la aplicación!")
+	      .setCancelable(false)
+	      .setPositiveButton("Ir a las configuraciones del GPS",
+	              new DialogInterface.OnClickListener(){
+	          public void onClick(DialogInterface dialog, int id){
+	              Intent callGPSSettingIntent = new Intent(
+	                      android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+	              startActivity(callGPSSettingIntent);
+	          }
+	      });
+	      alertDialogBuilder.setNegativeButton("Cancelar",
+	              new DialogInterface.OnClickListener(){
+	          public void onClick(DialogInterface dialog, int id){
+	              dialog.cancel();
+	          }
+	      });
+	      AlertDialog alert = alertDialogBuilder.create();
+	      alert.show();
+	  }
+	  public Location getLocation() {
+		    try {
+		        LocationManager locationManager = (LocationManager) getApplicationContext()
+		                .getSystemService(LOCATION_SERVICE);
+
+		        // getting GPS status
+		        boolean isGPSEnabled = locationManager
+		                .isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+		        // getting network status
+		        boolean isNetworkEnabled = locationManager
+		                .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+		        if (!isGPSEnabled && !isNetworkEnabled) {
+		            // no network provider is enabled
+		        } else {
+		            this.canGetLocation = true;
+		            if (isNetworkEnabled) {
+		                locationManager.requestLocationUpdates(
+		                        LocationManager.NETWORK_PROVIDER,
+		                        1000,
+		                        50, this);
+		                Log.d("Network", "Network Enabled");
+		                if (locationManager != null) {
+		                    location = locationManager
+		                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+		                    if (location != null) {
+		                        latitude = location.getLatitude();
+		                        longitude = location.getLongitude();
+		                    }
+		                }
+		            }
+		            // if GPS Enabled get lat/long using GPS Services
+		            if (isGPSEnabled) {
+		                if (location == null) {
+		                    locationManager.requestLocationUpdates(
+		                            LocationManager.GPS_PROVIDER,
+		                            1000,
+		                            50, this);
+		                    Log.d("GPS", "GPS Enabled");
+		                    if (locationManager != null) {
+		                        location = locationManager
+		                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		                        if (location != null) {
+		                            latitude = location.getLatitude();
+		                            longitude = location.getLongitude();
+		                            
+		                        }
+		                        locationManager.removeUpdates(this);
+		                    }
+		                }
+		            }
+		        }
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+
+		    return location;
+		}
+		public void iniciar_ServiciosNow(){
+
+			// Iniciar Serivicio de Localizacion
+			boolean check_service_loc =  isMyServiceRunning("com.demomapas.servicios.Servicio_Localizacion");
+			//Log.i("Status servicio Localizacion", ""+check_service_loc);
+			if(check_service_loc){
+				Log.i("servicio corriendo", "servicio corriendo");
+				intent_servicio_Loc=new Intent(getApplicationContext(), Servicio_Localizacion.class);
+				iniciar_servicio_Loc = new Iniciar_Servicio_Localizacion();
+			}else{
+				Log.i("servicio detenido", "servicio detenido");
+				intent_servicio_Loc=new Intent(getApplicationContext(), Servicio_Localizacion.class);
+				iniciar_servicio_Loc = new Iniciar_Servicio_Localizacion();
+				iniciar_servicio_Loc.onReceive(getApplicationContext(), intent_servicio_Loc);
+				
+				boolean check_service_loc2 =  isMyServiceRunning("com.demomapas.servicios.Servicio_Localizacion");
+				if(check_service_loc2)Log.i("yuju el servicio esta corriendo", "siiiiiiiiiiiiiiiiii");
+			}
+
+			// Iniciar Serivicio de Sincronizacion
+			
+		}
+		public boolean iniciar_Servicios(){
+		boolean b = false;
+		// Iniciar Serivicio de Localizacion
+		boolean check_service_loc =  isMyServiceRunning("com.demomapas.servicios.Servicio_Localizacion");
+
+		if(check_service_loc)
+			b=true;
+		return b;
+	}
+		public boolean isMyServiceRunning(String serviceClassName){
+			final ActivityManager activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+			final List<RunningServiceInfo> services = activityManager.getRunningServices(Integer.MAX_VALUE);
+		for(int y=0;y<services.size();y++){
+			
+				Log.e(services.get(y).service.getClassName(),"es la lista de servicios");
+				if (services.get(y).service.getClassName().equals(serviceClassName)){
+					return true;
+				}
+			}
+			return false;
+		}
 }
 
