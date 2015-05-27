@@ -100,7 +100,7 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 		log(new Date().toString(), "entre al oncreate de el servicio");
 		Log.d("gaurde en el log", "guarde en el log");
 		Log.i("accedi al preferences", "accedi al preferences");
-		int valor =preferences.getInt("timer", 1);//aqui configuramos los minutos
+		int valor =preferences.getInt("timer", 5);//aqui configuramos los minutos
 		Log.i("el valor del timer es", ""+valor);
 		log(new Date().toString(), "el valor del timer es: "+valor);
 		tiempo = 1000*60*valor;
