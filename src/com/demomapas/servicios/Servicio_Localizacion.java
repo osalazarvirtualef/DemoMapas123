@@ -19,6 +19,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.demomapas.CloudEndpointUtils;
+import com.demomapas.Constants;
+import com.demomapas.endpoints.EndPointsInicializacion;
 //import com.demomapas.model.tareaendpoint.Tareaendpoint;
 //import com.demomapas.puntoendpoint.Puntoendpoint;
 //import com.demomapas.puntoendpoint.model.CollectionResponsePunto;
@@ -28,6 +30,9 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.virtualef.pgj.service.locationService.LocationService;
+import com.virtualef.pgj.service.locationService.model.GeoLocationDto;
+import com.virtualef.pgj.service.locationService.model.LocationDto;
 
 import android.app.Service;
 import android.content.ContentValues;
@@ -85,7 +90,8 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 	public static Context contexto;
 	double latitude = 0;
 	double longitude = 0;
-	 
+	LocationService ubicacionEndpoint;
+	Double idAgent;
 	
 	
 	@Override
@@ -98,6 +104,8 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 		preferences = getApplicationContext().getSharedPreferences(
 				"settings", 0);
 		log(new Date().toString(), "entre al oncreate de el servicio");
+		long a = preferences.getLong(Constants.idAgente, 0);
+		idAgent = (double) preferences.getLong(Constants.idAgente, 0);
 		Log.d("gaurde en el log", "guarde en el log");
 		Log.i("accedi al preferences", "accedi al preferences");
 		int valor =preferences.getInt("timer", 5);//aqui configuramos los minutos
@@ -122,6 +130,8 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 		}
 		
 	
+	EndPointsInicializacion endpoints = new EndPointsInicializacion();
+	ubicacionEndpoint = endpoints.InicializacionLocation();
 	
 		timer=new Timer();
 
@@ -159,34 +169,54 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 //log(new Date().toString(),"El servicio se ha detenido");
 
 	}
-//	public class insertOrdenNueva extends AsyncTask<String,String,Void> {
-//
-//		IOException exceptionThrown;
-//
-//		@Override
-//		protected Void doInBackground(String... params) {
-//			// TODO Auto-generated method stub
-//
-//			Log.i("estoy en la insercion", "insercion"); 
-//		//locationManager.removeUpdates(Servicio_Localizacion.this);
-//		//Log.i("apague el location manager", "apaga");
-//			return null;
-//		}
-//		
-//		
-//		
-//		@Override
-//		protected void onProgressUpdate(String... values) {
-//			// TODO Auto-generated method stub
-//			if(values[0].equalsIgnoreCase("1"))
-//			Toast.makeText(getApplicationContext(), "insercion correcta:" +values[1], Toast.LENGTH_LONG).show();
-//			else 
-//				if(values[0].equalsIgnoreCase("0"))
-//					Toast.makeText(getApplicationContext(), "insercion erronea: "+values[1], Toast.LENGTH_LONG).show();
-//			super.onProgressUpdate(values);
-//		}
-//
-//	}
+	public class insertOrdenNueva extends AsyncTask<String,String,Void> {
+
+		IOException exceptionThrown;
+
+		@Override
+		protected Void doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			LocationDto location = new LocationDto();
+			location.setIdAgent(idAgent);
+			ArrayList<GeoLocationDto>listaUbicaciones =  new ArrayList<GeoLocationDto>();
+			GeoLocationDto ubicacion = new GeoLocationDto();
+			Long tsLong = System.currentTimeMillis()/1000;
+			String ts = tsLong.toString();
+			ubicacion.setCurrentTime(Double.parseDouble(ts));
+			ubicacion.setLatitude((float)latitude);
+			ubicacion.setLongitude((float)longitude);
+			listaUbicaciones.add(ubicacion);
+			location.setGeoLocation(listaUbicaciones);
+			try {
+				ubicacionEndpoint.insertLocation(location).execute();
+				Log.i("insercion correcta", "insercion correcta");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				Log.e("error al insertar la ubicacion", e.getMessage());
+			}
+			
+		
+			Log.i("estoy en la insercion", "insercion"); 
+		//locationManager.removeUpdates(Servicio_Localizacion.this);
+		//Log.i("apague el location manager", "apaga");
+			return null;
+		}
+		
+		
+		
+		@Override
+		protected void onProgressUpdate(String... values) {
+			// TODO Auto-generated method stub
+			if(values[0].equalsIgnoreCase("1"))
+			Toast.makeText(getApplicationContext(), "insercion correcta:" +values[1], Toast.LENGTH_LONG).show();
+			else 
+				if(values[0].equalsIgnoreCase("0"))
+					Toast.makeText(getApplicationContext(), "insercion erronea: "+values[1], Toast.LENGTH_LONG).show();
+			super.onProgressUpdate(values);
+		}
+
+	}
 	public boolean checar_conexion(){
 		//log(new Date().toString(), "verificar conexion");
     	ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -284,6 +314,9 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 				 Log.d("entre al timer: ", "la hora es: "+date.toString());
 				 Log.d("se obtuvo la ubicacion", "lat :"+location.getLatitude()+" long: "+location.getLongitude());
 				 grabar(location.getLatitude(), location.getLongitude(), date.toString());
+				 latitude = location.getLatitude();
+				 longitude = location.getLongitude();
+				 new insertOrdenNueva().execute();
 			} catch (Exception e) {
 				// TODO: handle exception
 				log(new Date().toString(), "error: "+e.getMessage());
@@ -497,13 +530,13 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 		        	//log(new Date().toString(), "gps y red desactivados");
 		        } else {
 		            this.canGetLocation = true;
-		            if (isNetworkEnabled) {
+		            if (isGPSEnabled) {//isNetworkEnabled
 		            	//log(new Date().toString(), "red encendida");
 		                locationManager.requestLocationUpdates(
-		                        LocationManager.NETWORK_PROVIDER,
+		                        LocationManager.GPS_PROVIDER,//NETWORK_PROVIDER
 		                        1000,
 		                        50, this);
-		                Log.d("Network", "Network Enabled");
+		                Log.d("GPS", "GPS Enabled");//"Network", "Network Enabled"
 		                if (locationManager != null) {
 		                	
 		                    location = locationManager
@@ -515,14 +548,14 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 		                }
 		            }
 		            // if GPS Enabled get lat/long using GPS Services
-		            if (isGPSEnabled) {
+		            if (isNetworkEnabled) {//isGPSEnabled
 		                if (location == null) {
 		                	//log(new Date().toString(), "gps encendida");
 		                    locationManager.requestLocationUpdates(
-		                            LocationManager.GPS_PROVIDER,
+		                            LocationManager.NETWORK_PROVIDER,//GPS_PROVIDER
 		                            1000,
 		                            50, this);
-		                    Log.d("GPS", "GPS Enabled");
+		                    Log.d("Network", "Network Enabled");//"GPS", "GPS Enabled"
 		                    if (locationManager != null) {
 		                        location = locationManager
 		                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -531,10 +564,11 @@ public class Servicio_Localizacion extends Service implements LocationListener{
 		                            longitude = location.getLongitude();
 		                            
 		                        }
-		                        locationManager.removeUpdates(this);
+		                       
 		                    }
 		                }
 		            }
+		            locationManager.removeUpdates(this);
 		        }
 
 		    } catch (Exception e) {

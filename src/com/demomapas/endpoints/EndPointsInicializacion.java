@@ -8,6 +8,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.virtualef.pgj.service.agentService.AgentService;
 import com.virtualef.pgj.service.agentService.model.AgentDto;
 import com.virtualef.pgj.service.commandmentService.CommandmentService;
+import com.virtualef.pgj.service.locationService.LocationService;
 
 
 public class EndPointsInicializacion {
@@ -49,6 +50,24 @@ public class EndPointsInicializacion {
 				});	
 		MandamientoEndpoint = CloudEndpointUtils.updateBuilder(mandamientoEndpointbuilder).build();
 		return MandamientoEndpoint;
+		
+		
+	}
+	public LocationService InicializacionLocation(){
+
+		LocationService UbicacionesEndpoint;
+
+		LocationService.Builder ubicacionesEndpointbuilder = new LocationService.Builder(
+				AndroidHttp.newCompatibleTransport(), new JacksonFactory(),
+				new HttpRequestInitializer() {
+
+					@Override
+					public void initialize(HttpRequest arg0) {
+						// TODO Auto-generated method stub
+					}
+				});	
+		UbicacionesEndpoint = CloudEndpointUtils.updateBuilder(ubicacionesEndpointbuilder).build();
+		return UbicacionesEndpoint;
 		
 		
 	}

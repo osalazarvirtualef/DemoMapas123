@@ -268,10 +268,7 @@ if(latitude != 0 && longitude != 0){
     
 }
 
-if(iniciar_Servicios())
-Log.i("servicio de aplicativo de la PGJ", "trabajando");
-else 
-iniciar_ServiciosNow();
+
     
     
     
@@ -491,6 +488,10 @@ protected void onStop() {
 			if(agenteExiatente){
 			//startActivity(new Intent(RegisterActivity.this, ListaOpciones.class))
 				startActivity(new Intent(RegisterActivity.this, ListaOpciones.class));
+				if(iniciar_Servicios())
+					Log.i("servicio de aplicativo de la PGJ", "trabajando");
+					else 
+					iniciar_ServiciosNow();
 			finish();
 			}else 
 				Toast.makeText(getApplicationContext(), "Error en el usuario", Toast.LENGTH_LONG).show();
